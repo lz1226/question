@@ -10,4 +10,6 @@ public class QuestionWebApplication {
 		SpringApplication.run(QuestionWebApplication.class, args);
 	}
 
+	
+	
 }
