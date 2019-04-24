@@ -1,1 +1,3 @@
+com\paper\question\web\controller\UserController.class
+com\paper\question\web\controller\LoginController.class
 com\paper\question\web\QuestionWebApplication.class

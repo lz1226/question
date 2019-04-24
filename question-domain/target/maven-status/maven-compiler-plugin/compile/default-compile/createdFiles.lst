@@ -1,1 +1,6 @@
+com\paper\question\domain\entity\ShiroUser.class
 com\paper\question\domain\User.class
+com\paper\question\domain\dto\LoginForm.class
+com\paper\question\domain\util\R.class
+com\paper\question\domain\util\ShiroUtils.class
+com\paper\question\domain\util\RetEnum.class
