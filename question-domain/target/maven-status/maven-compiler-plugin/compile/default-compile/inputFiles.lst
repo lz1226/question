@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 E:\paperSys\question\question-domain\src\main\java\com\paper\question\domain\entity\ShiroUser.java
 E:\paperSys\question\question-domain\src\main\java\com\paper\question\domain\User.java
 E:\paperSys\question\question-domain\src\main\java\com\paper\question\domain\util\R.java
 E:\paperSys\question\question-domain\src\main\java\com\paper\question\domain\util\RetEnum.java
 E:\paperSys\question\question-domain\src\main\java\com\paper\question\domain\dto\LoginForm.java
 E:\paperSys\question\question-domain\src\main\java\com\paper\question\domain\util\ShiroUtils.java
-=======
-E:\权限\paperSys\question\question-domain\src\main\java\com\paper\question\domain\User.java
-E:\权限\paperSys\question\question-domain\src\main\java\com\paper\question\domain\util\RetEnum.java
-E:\权限\paperSys\question\question-domain\src\main\java\com\paper\question\domain\dto\LoginForm.java
-E:\权限\paperSys\question\question-domain\src\main\java\com\paper\question\domain\entity\ShiroUser.java
-E:\权限\paperSys\question\question-domain\src\main\java\com\paper\question\domain\util\ShiroUtils.java
-E:\权限\paperSys\question\question-domain\src\main\java\com\paper\question\domain\util\R.java
->>>>>>> f141e79be6a61fd7edfa3a6e156c7d130f8c20d0
