@@ -1,7 +1,5 @@
 package com.paper.question.domain.util;
 
-//import com.hsshy.beam.common.enumeration.RetEnum;
-//import com.hsshy.beam.common.exception.BeamException;
 import com.paper.question.domain.entity.ShiroUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
@@ -9,7 +7,6 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
 public class ShiroUtils {
-
 
     //名称分隔符
     private static final String NAMES_DELIMETER = ",";
@@ -41,7 +38,6 @@ public class ShiroUtils {
 
     //获取当前 Subject
     public static Subject getSubject() {
-
         return SecurityUtils.getSubject();
     }
 
@@ -100,7 +96,7 @@ public class ShiroUtils {
 //        removeSessionAttr(key);
 //        return kaptcha.toString();
 //    }
-//
+
     /**
      * 验证当前用户是否属于该角色？,使用时与lacksRole 搭配使用
      *

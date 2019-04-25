@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 
 public class ShiroUser implements Serializable {
-
     /**
      * 主键id
      */

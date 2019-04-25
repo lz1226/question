@@ -50,7 +50,7 @@ public class R<T> extends HashMap<String, Object> {
 	}
 
 	public static <T> R<T> fail(T data) {
-		R r = new R(RetEnum.ERROR.getRet(), RetEnum.ERROR.getMsg());
+		R r = new R(RetEnum.ERROR.getRet(),RetEnum.ERROR.getMsg());
 		r.put("data",data);
 		r.put("error",true);
 		return r;
@@ -68,7 +68,7 @@ public class R<T> extends HashMap<String, Object> {
 
 	public static R ok() {
 
-		return new R(RetEnum.SUCCESS.getRet(), RetEnum.SUCCESS.getMsg());
+		return new R(RetEnum.SUCCESS.getRet(),RetEnum.SUCCESS.getMsg());
 	}
 
 
@@ -93,7 +93,7 @@ public class R<T> extends HashMap<String, Object> {
 
 
 	public static <T> R<T> ok(T data) {
-		R r = new R(RetEnum.SUCCESS.getRet(), RetEnum.SUCCESS.getMsg());
+		R r = new R(RetEnum.SUCCESS.getRet(),RetEnum.SUCCESS.getMsg());
 		r.put("data",data);
 		r.put("error",false);
 		return r;

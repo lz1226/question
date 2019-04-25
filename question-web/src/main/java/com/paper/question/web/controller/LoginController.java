@@ -1,4 +1,5 @@
 package com.paper.question.web.controller;
+
 import com.paper.question.domain.dto.LoginForm;
 import com.paper.question.domain.util.R;
 import com.paper.question.domain.util.ShiroUtils;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class LoginController {

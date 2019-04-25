@@ -53,6 +53,7 @@
 			<scope>test</scope>
 		</dependency>
 
+<<<<<<< HEAD
 		<!--shiro依赖-->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
@@ -75,6 +76,15 @@
 			<!--<artifactId>shiro-all</artifactId>-->
 			<!--<version>1.4.0</version>-->
 		<!--</dependency>-->
+=======
+        <!--shiro依赖-->
+        <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-all</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+>>>>>>> f141e79be6a61fd7edfa3a6e156c7d130f8c20d0
 	</dependencies>
     <!--<filter>-->
         <!--<filter-name>tracingContextFilter</filter-name>-->
