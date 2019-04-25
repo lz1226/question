@@ -52,6 +52,66 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--shiro依赖-->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-ehcache</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
+		<!--<dependency>-->
+			<!--<groupId>org.apache.shiro</groupId>-->
+			<!--<artifactId>shiro-all</artifactId>-->
+			<!--<version>1.4.0</version>-->
+		<!--</dependency>-->
 	</dependencies>
+    <!--<filter>-->
+        <!--<filter-name>tracingContextFilter</filter-name>-->
+        <!--<filter-class>com.paper.question.web.controller</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>tracingContextFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+    <!--<filter>-->
+        <!--<filter-name>CORS</filter-name>-->
+        <!--<filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>cors.allowOrigin</param-name>-->
+            <!--<param-value>*</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>cors.supportedMethods</param-name>-->
+            <!--<param-value>GET, POST, HEAD, PUT, DELETE,OPTIONS</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>cors.supportedHeaders</param-name>-->
+            <!--<param-value>Accept, Origin, X-Requested-With,tokenId,Content-Type, Last-Modified,lang,entCode,x-form-id-->
+            <!--</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>cors.exposedHeaders</param-name>-->
+            <!--<param-value>Set-Cookie</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>cors.supportsCredentials</param-name>-->
+            <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>CORS</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
 
 </project>
