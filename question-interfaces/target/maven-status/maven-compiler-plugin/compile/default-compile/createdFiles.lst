@@ -1,1 +1,2 @@
 com\paper\question\interfaces\UserService.class
+com\paper\question\interfaces\IShiro.class
