@@ -1,0 +1,4 @@
+com\paper\question\dao\mapper\RoleMapper.class
+com\paper\question\dao\mapper\DeptMapper.class
+com\paper\question\dao\mapper\UserMapper.class
+com\paper\question\dao\mapper\MenuMapper.class

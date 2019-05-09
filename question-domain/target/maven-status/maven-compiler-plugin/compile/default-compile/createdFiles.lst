@@ -1,6 +1,10 @@
-com\paper\question\domain\entity\ShiroUser.class
+com\paper\question\domain\entity\Role.class
 com\paper\question\domain\User.class
-com\paper\question\domain\dto\LoginForm.class
+com\paper\question\domain\entity\Menu.class
+com\paper\question\domain\entity\User.class
 com\paper\question\domain\util\R.class
 com\paper\question\domain\util\ShiroUtils.class
 com\paper\question\domain\util\RetEnum.class
+com\paper\question\domain\entity\Dept.class
+com\paper\question\domain\entity\ShiroUser.class
+com\paper\question\domain\dto\LoginForm.class

@@ -52,7 +52,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 		<!--shiro依赖-->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>

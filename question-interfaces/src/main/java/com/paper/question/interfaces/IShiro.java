@@ -1,7 +1,7 @@
 package com.paper.question.interfaces;
 
-import com.paper.question.domain.User;
 import com.paper.question.domain.entity.ShiroUser;
+import com.paper.question.domain.entity.User;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 
 import java.util.List;

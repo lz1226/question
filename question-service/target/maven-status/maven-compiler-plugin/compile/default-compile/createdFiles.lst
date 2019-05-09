@@ -1,1 +1,4 @@
 com\paper\question\service\UserImpl.class
+com\paper\question\service\MenuServiceImpl.class
+com\paper\question\service\shiro\ShiroConfig.class
+com\paper\question\service\shiro\CustomRealm.class
