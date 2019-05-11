@@ -51,7 +51,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="sys_menu" domainObjectName="SysMenu">
+        <table tableName="sys_user" domainObjectName="SysUse">
             <property name="nullCatalogMeansCurrent" value="true"/>
             <!--<property name="useActualColumnNames" value="true"/>-->
             <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->
