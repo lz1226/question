@@ -51,7 +51,24 @@
         </javaClientGenerator>
 
 
-        <table tableName="sys_user" domainObjectName="SysUse">
+        
+        <table tableName="sys_user_role" domainObjectName="SysUserRole">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate"/>-->
+            <!--<ignoreColumn column="FRED"/>-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>-->
+        </table>
+        <table tableName="sys_role_menu" domainObjectName="SysRoleMenu">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate"/>-->
+            <!--<ignoreColumn column="FRED"/>-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>-->
+        </table>
+        <table tableName="sys_role" domainObjectName="SysRole">
             <property name="nullCatalogMeansCurrent" value="true"/>
             <!--<property name="useActualColumnNames" value="true"/>-->
             <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->
