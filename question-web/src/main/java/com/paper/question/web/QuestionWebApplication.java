@@ -1,6 +1,5 @@
 package com.paper.question.web;
 
-import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

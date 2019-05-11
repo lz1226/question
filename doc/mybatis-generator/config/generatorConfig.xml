@@ -24,9 +24,9 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://47.104.60.101:3306/downton3?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true"
-                        userId="downton"
-                        password="ZfTx169@2018"/>
+                        connectionURL="jdbc:mysql://localhost:3306/survey?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true"
+                        userId="root"
+                        password="root"/>
 
 
         <javaTypeResolver>
@@ -51,7 +51,7 @@
         </javaClientGenerator>
 
 
-        <table tableName="service_for_region" domainObjectName="ServiceForRegion">
+        <table tableName="sys_menu" domainObjectName="SysMenu">
             <property name="nullCatalogMeansCurrent" value="true"/>
             <!--<property name="useActualColumnNames" value="true"/>-->
             <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->
