@@ -24,9 +24,9 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://47.104.60.101:3306/downton3?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true"
-                        userId="downton"
-                        password="ZfTx169@2018"/>
+                        connectionURL="jdbc:mysql://localhost:3306/beam?useUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true"
+                        userId="root"
+                        password="root"/>
 
 
         <javaTypeResolver>
@@ -51,7 +51,41 @@
         </javaClientGenerator>
 
 
-        <table tableName="service_for_region" domainObjectName="ServiceForRegion">
+        
+        <table tableName="sys_user_role" domainObjectName="SysUserRole">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate"/>-->
+            <!--<ignoreColumn column="FRED"/>-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>-->
+        </table>
+        <table tableName="sys_role_menu" domainObjectName="SysRoleMenu">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate"/>-->
+            <!--<ignoreColumn column="FRED"/>-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>-->
+        </table>
+        <table tableName="sys_role" domainObjectName="SysRole">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate"/>-->
+            <!--<ignoreColumn column="FRED"/>-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>-->
+        </table>
+        <table tableName="sys_user" domainObjectName="SysUser">
+            <property name="nullCatalogMeansCurrent" value="true"/>
+            <!--<property name="useActualColumnNames" value="true"/>-->
+            <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->
+            <!--<columnOverride column="DATE_FIELD" property="startDate"/>-->
+            <!--<ignoreColumn column="FRED"/>-->
+            <!--<columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>-->
+        </table>
+
+        <table tableName="sys_menu" domainObjectName="SysMenu">
             <property name="nullCatalogMeansCurrent" value="true"/>
             <!--<property name="useActualColumnNames" value="true"/>-->
             <!--<generatedKey column="ID" sqlStatement="DB2" identity="true"/>-->

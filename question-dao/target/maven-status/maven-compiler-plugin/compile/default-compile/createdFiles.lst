@@ -1,4 +1,5 @@
-com\paper\question\dao\mapper\RoleMapper.class
-com\paper\question\dao\mapper\DeptMapper.class
-com\paper\question\dao\mapper\UserMapper.class
-com\paper\question\dao\mapper\MenuMapper.class
+com\paper\question\dao\mapper\SysUserRoleMapper.class
+com\paper\question\dao\mapper\SysMenuMapper.class
+com\paper\question\dao\mapper\SysRoleMenuMapper.class
+com\paper\question\dao\mapper\SysUserMapper.class
+com\paper\question\dao\mapper\SysRoleMapper.class
