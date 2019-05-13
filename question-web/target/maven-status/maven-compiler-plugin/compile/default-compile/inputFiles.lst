@@ -1,6 +1,10 @@
-E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\UserController.java
-E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\test\GuestController.java
+E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\shiro\LoginController.java
+E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\shiro\ExceptionController.java
 E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\DashboardController.java
-E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\LoginController.java
+E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\shiro\AdminController.java
+E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\UserControllers.java
 E:\paperSys\question\question-web\src\main\java\com\paper\question\web\QuestionWebApplication.java
+E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\LoginControllers.java
 E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\MenuController.java
+E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\shiro\GuestController.java
+E:\paperSys\question\question-web\src\main\java\com\paper\question\web\controller\shiro\UserController.java

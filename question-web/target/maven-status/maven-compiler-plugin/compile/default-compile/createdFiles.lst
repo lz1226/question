@@ -1,6 +1,10 @@
 com\paper\question\web\controller\MenuController.class
-com\paper\question\web\controller\LoginController.class
-com\paper\question\web\controller\UserController.class
-com\paper\question\web\controller\test\GuestController.class
+com\paper\question\web\controller\shiro\GuestController.class
+com\paper\question\web\controller\UserControllers.class
+com\paper\question\web\controller\shiro\LoginController.class
+com\paper\question\web\controller\shiro\AdminController.class
+com\paper\question\web\controller\shiro\ExceptionController.class
+com\paper\question\web\controller\shiro\UserController.class
+com\paper\question\web\controller\LoginControllers.class
 com\paper\question\web\controller\DashboardController.class
 com\paper\question\web\QuestionWebApplication.class

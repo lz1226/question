@@ -1,39 +1,27 @@
 package com.paper.question.dao.mapper;
 
-import com.paper.question.domain.entity.User;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
+import org.springframework.stereotype.Repository;
 
 /**
- * 管理员表
- * 
- * @author hs
- * @email 457030599@qq.com
- * @date 2018-10-07 18:03:20
+ * Created with IntelliJ IDEA
+ *
+ * @Author yuanhaoyue swithaoy@gmail.com
+ * @Description
+ * @Date 2018-03-25
+ * @Time 22:04
  */
-public interface UserMapper{
-
-//    IPage<Map> selectPageList(Page page, @Param("user") User user);
+@Repository
+public interface UserMapper {
+    /**
+     * 获得密码
+     * @param username 用户名
+     */
+    String getPassword(String username);
 
     /**
-     * 查询用户的所有权限
-     * @param userId  用户ID
+     * 获得角色权限
+     * @param username 用户名
+     * @return user/admin
      */
-    List<String> queryAllPerms(Long userId);
-
-    /**
-     * 查询用户的所有菜单ID
-     */
-    List<Long> queryAllMenuId(Long userId);
-
-
-    List<Long> getRoleIdsById(@Param("userId") Long userId);
-
-    void saveUserRole(@Param("user") User user);
-
-    void delURByUserId(Long userId);
-
-    User selectOne(@Param("account") String account);
-
+    String getRole(String username);
 }
