@@ -3,6 +3,7 @@ package com.paper.question.dao.mapper;
 import com.paper.question.domain.entity.SysUser;
 import org.apache.ibatis.annotations.Param;
 
+
 public interface SysUserMapper {
 
     int deleteByPrimaryKey(Long id);
@@ -11,7 +12,7 @@ public interface SysUserMapper {
 
     int insertSelective(SysUser record);
 
-    SysUser selectByPrimaryKey(Long id);
+    SysUser selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(SysUser record);
 

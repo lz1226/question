@@ -111,12 +111,6 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="entity.SysMenuExample" resultType="java.lang.Long">
-    select count(*) from sys_menu
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
   <update id="updateByPrimaryKeySelective" parameterType="com.paper.question.domain.entity.SysMenu">
     update sys_menu
     <set>
