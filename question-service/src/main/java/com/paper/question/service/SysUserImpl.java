@@ -16,10 +16,7 @@ public class SysUserImpl implements ISysUserService{
 
     @Override
     public SysUser login(SysUser sysUser) {
-        System.out.println("信息。。。"+sysUser);
-//        SysUser sysUser1 =  sysUserMapper.selectByPrimaryKey(1);
-       SysUser sysUser1 = sysUserMapper.selectByNameAndPwd(sysUser.getAccount(),sysUser.getPassword());
-        System.out.println("信息2。。。"+sysUser1);
-        return sysUser1;
+       sysUser = sysUserMapper.selectByNameAndPwd(sysUser.getName(),sysUser.getPassword());
+       return sysUser;
     }
 }

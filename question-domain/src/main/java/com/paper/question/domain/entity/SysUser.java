@@ -3,41 +3,45 @@ package com.paper.question.domain.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import io.swagger.annotations.ApiParam;
+
 public class SysUser implements Serializable {
+	
+	@ApiParam(hidden = true)
     private Long id;
-
+	@ApiParam(hidden = true)
     private String avatar;
-
+	@ApiParam(hidden = true)
     private String account;
-
+	@ApiParam(hidden = true)
     private String password;
-
+	@ApiParam(hidden = true)
     private String salt;
-
+	@ApiParam(hidden = true)
     private String name;
-
+	@ApiParam(hidden = true)
     private Long deptId;
-
+	@ApiParam(hidden = true)
     private Date birthday;
-
+	@ApiParam(hidden = true)
     private Integer sex;
-
+	@ApiParam(hidden = true)
     private String email;
-
+	@ApiParam(hidden = true)
     private String phone;
-
+	@ApiParam(hidden = true)
     private Integer status;
-
+	@ApiParam(hidden = true)
     private Integer version;
-
+	@ApiParam(hidden = true)
     private Long createBy;
-
+	@ApiParam(hidden = true)
     private Long updateBy;
-
+	@ApiParam(hidden = true)
     private Date createTime;
-
+	@ApiParam(hidden = true)
     private Date updateTime;
-
+	@ApiParam(hidden = true)
     private Boolean delFlag;
 
     public Long getId() {

@@ -13,7 +13,6 @@ public class DataSourceConfig {
     @Bean
     @ConfigurationProperties("spring.datasource.druid")
     public DataSource druidDataSource() {
-        System.out.println("是否走了");
         return DruidDataSourceBuilder.create().build();
     }
 
