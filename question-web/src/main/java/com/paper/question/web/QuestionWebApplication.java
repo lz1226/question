@@ -16,6 +16,7 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 
 @EnableTransactionManagement
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
+//@MapperScan("com.paper.question.dao.mapper")
 @ComponentScan("com.paper")
 public class QuestionWebApplication {
 
