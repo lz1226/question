@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\dell\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\controller\SysMenuController.java
 C:\Users\dell\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\QuestionWebApplication.java
 C:\Users\dell\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\controller\SysUserController.java
@@ -6,3 +7,13 @@ C:\Users\dell\Desktop\questionobj\question\question-web\src\main\java\com\paper\
 C:\Users\dell\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\controller\SysRoleMenuController.java
 C:\Users\dell\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\config\DataSourceConfig.java
 C:\Users\dell\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\controller\SysUserRoleController.java
+=======
+C:\Users\Administrator\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\controller\SysUserController.java
+C:\Users\Administrator\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\config\MybatisMapperConfig.java
+C:\Users\Administrator\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\controller\SysUserRoleController.java
+C:\Users\Administrator\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\controller\SysMenuController.java
+C:\Users\Administrator\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\controller\SysRoleController.java
+C:\Users\Administrator\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\QuestionWebApplication.java
+C:\Users\Administrator\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\controller\SysRoleMenuController.java
+C:\Users\Administrator\Desktop\questionobj\question\question-web\src\main\java\com\paper\question\web\config\DataSourceConfig.java
+>>>>>>> ce958f91dfae74bec7ed89d2906af9f5c032f206

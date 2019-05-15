@@ -10,6 +10,7 @@ import com.paper.question.common.JsonResult;
 import com.paper.question.common.JsonResultFactory;
 import com.paper.question.domain.entity.SysUser;
 import com.paper.question.interfaces.ISysUserService;
+<<<<<<< HEAD
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -25,7 +26,6 @@ public class SysUserController {
     private ISysUserService sysUserService;
 
     
-   
     @ApiOperation(value="用户登录接口")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query",name="name",value="用户名",required = true,dataType="String"),

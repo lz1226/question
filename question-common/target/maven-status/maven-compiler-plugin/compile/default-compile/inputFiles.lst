@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 C:\Users\dell\Desktop\questionobj\question\question-common\src\main\java\com\paper\question\common\JsonResult.java
 C:\Users\dell\Desktop\questionobj\question\question-common\src\main\java\com\paper\question\common\ReturnCode.java
 C:\Users\dell\Desktop\questionobj\question\question-common\src\main\java\com\paper\question\common\JsonResultFactory.java
+=======
+C:\Users\Administrator\Desktop\questionobj\question\question-common\src\main\java\com\paper\question\common\JsonResult.java
+C:\Users\Administrator\Desktop\questionobj\question\question-common\src\main\java\com\paper\question\common\JsonResultFactory.java
+C:\Users\Administrator\Desktop\questionobj\question\question-common\src\main\java\com\paper\question\common\ReturnCode.java
+>>>>>>> ce958f91dfae74bec7ed89d2906af9f5c032f206

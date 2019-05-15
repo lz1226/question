@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 C:\Users\dell\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysRoleMenu.java
 C:\Users\dell\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysUser.java
 C:\Users\dell\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysRole.java
 C:\Users\dell\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysUserRole.java
 C:\Users\dell\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysMenu.java
+=======
+C:\Users\Administrator\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysUserRole.java
+C:\Users\Administrator\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysRoleMenu.java
+C:\Users\Administrator\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysUser.java
+C:\Users\Administrator\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysMenu.java
+C:\Users\Administrator\Desktop\questionobj\question\question-domain\src\main\java\com\paper\question\domain\entity\SysRole.java
+>>>>>>> ce958f91dfae74bec7ed89d2906af9f5c032f206
