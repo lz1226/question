@@ -1,9 +1,10 @@
 package com.paper.question.dao.mapper;
 
 import com.paper.question.domain.entity.SysUser;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-
 
 public interface SysUserMapper {
 
@@ -19,6 +20,5 @@ public interface SysUserMapper {
 
     int updateByPrimaryKey(SysUser record);
 
-//    @Select(" select * from sys_user where account = #{name} and password = #{pwd}")
     SysUser selectByNameAndPwd(@Param("name") String name,@Param("pwd") String pwd);
 }
