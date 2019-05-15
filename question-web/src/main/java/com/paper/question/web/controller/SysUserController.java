@@ -10,8 +10,6 @@ import com.paper.question.common.JsonResult;
 import com.paper.question.common.JsonResultFactory;
 import com.paper.question.domain.entity.SysUser;
 import com.paper.question.interfaces.ISysUserService;
-<<<<<<< HEAD
-
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
