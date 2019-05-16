@@ -19,7 +19,10 @@
     delete from sys_user_role
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insertSelective" parameterType="com.paper.question.domain.entity.SysUserRole">
+  <insert id="insertSelective"
+          useGeneratedKeys="true"
+          keyProperty="id"
+          parameterType="com.paper.question.domain.entity.SysUserRole">
     insert into sys_user_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

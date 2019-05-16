@@ -8,20 +8,29 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
-  <sql id="Base_Column_List">
-    id, role_name, remark, create_time, update_time
-  </sql>
+  <resultMap id="SysRoleDtoBaseResultMap" type="com.paper.question.domain.dto.SysRoleDto">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from sys_role
+    select  *  from sys_role
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="findById" parameterType="java.lang.Long" resultMap="SysRoleDtoBaseResultMap">
+    select  *  from sys_role
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sys_role
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insertSelective" parameterType="com.paper.question.domain.entity.SysRole">
+  <insert id="insertSelective"
+          useGeneratedKeys="true"
+          keyProperty="id"
+          parameterType="com.paper.question.domain.entity.SysRole">
     insert into sys_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

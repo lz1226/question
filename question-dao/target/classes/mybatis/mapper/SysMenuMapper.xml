@@ -16,9 +16,28 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="del_flag" jdbcType="BIT" property="delFlag" />
   </resultMap>
+  <resultMap id="SysMenuDtoBaseResultMap" type="com.paper.question.domain.dto.SysMenuDto">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="parent_id" jdbcType="BIGINT" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="perms" jdbcType="VARCHAR" property="perms" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="order_num" jdbcType="INTEGER" property="orderNum" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="update_by" jdbcType="BIGINT" property="updateBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="BIT" property="delFlag" />
+  </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
-    *
+    select  *
+    from sys_menu
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="findById" parameterType="java.lang.Long" resultMap="SysMenuDtoBaseResultMap">
+    select  *
     from sys_menu
     where id = #{id,jdbcType=BIGINT}
   </select>
@@ -26,7 +45,10 @@
     delete from sys_menu
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insertSelective" parameterType="com.paper.question.domain.entity.SysMenu">
+  <insert id="insertSelective"
+          useGeneratedKeys="true"
+          keyProperty="id"
+          parameterType="com.paper.question.domain.entity.SysMenu">
     insert into sys_menu
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

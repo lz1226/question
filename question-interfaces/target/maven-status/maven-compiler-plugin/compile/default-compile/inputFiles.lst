@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-C:\Users\dell\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysRoleMenuService.java
-C:\Users\dell\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysUserService.java
-C:\Users\dell\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysUserRoleService.java
-C:\Users\dell\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysMenuService.java
-C:\Users\dell\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysRoleService.java
-=======
-C:\Users\Administrator\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysRoleMenuService.java
-C:\Users\Administrator\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysUserService.java
-C:\Users\Administrator\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysMenuService.java
-C:\Users\Administrator\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysUserRoleService.java
-C:\Users\Administrator\Desktop\questionobj\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysRoleService.java
->>>>>>> ce958f91dfae74bec7ed89d2906af9f5c032f206
+E:\paperSys\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysMenuService.java
+E:\paperSys\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysRoleMenuService.java
+E:\paperSys\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysUserService.java
+E:\paperSys\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysUserRoleService.java
+E:\paperSys\question\question-interfaces\src\main\java\com\paper\question\interfaces\ISysRoleService.java

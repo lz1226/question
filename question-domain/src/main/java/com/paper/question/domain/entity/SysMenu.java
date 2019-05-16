@@ -1,33 +1,36 @@
 package com.paper.question.domain.entity;
 
+import io.swagger.annotations.ApiParam;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class SysMenu implements Serializable {
+    @ApiParam(hidden = true)
     private Long id;
-
+    @ApiParam(hidden = true)
     private Long parentId;
-
+    @ApiParam(hidden = true)
     private String name;
-
+    @ApiParam(hidden = true)
     private String url;
-
+    @ApiParam(hidden = true)
     private String perms;
-
+    @ApiParam(hidden = true)
     private Integer type;
-
+    @ApiParam(hidden = true)
     private String icon;
-
+    @ApiParam(hidden = true)
     private Integer orderNum;
-
+    @ApiParam(hidden = true)
     private Long createBy;
-
+    @ApiParam(hidden = true)
     private Long updateBy;
-
+    @ApiParam(hidden = true)
     private Date createTime;
-
+    @ApiParam(hidden = true)
     private Date updateTime;
-
+    @ApiParam(hidden = true)
     private Boolean delFlag;
 
     public Long getId() {
