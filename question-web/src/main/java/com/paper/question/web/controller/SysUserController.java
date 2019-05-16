@@ -34,19 +34,34 @@ public class SysUserController {
        return JsonResultFactory.get(sysUsers);
     }
 
-    @ApiOperation(value="通过Id查找用户用户接口")
+    /**
+     * 分页查找用户列表信息
+     * @param pagination
+     * @return
+     */
+    @ApiOperation(value="查找用户列表接口")
     @PostMapping("/list")
     public JsonResult list( @RequestBody Pagination pagination){
         return sysUserService.list(pagination);
     }
 
-    @ApiOperation(value="通过Id查找用户用户接口")
+    /**
+     * 根据用户的id查找用户信息
+     * @param id
+     * @return
+     */
+    @ApiOperation(value="通过Id查找用户接口")
     @GetMapping("/find/{id}")
     public JsonResult findUserById( @ApiParam(required=true, name="id", value="用户Id")@PathVariable("id") long id){
        SysUserDto sysUser = sysUserService.findById(id);
         return JsonResultFactory.get(sysUser);
     }
 
+    /**
+     * 创建用户信息
+     * @param sysUser
+     * @return
+     */
     @ApiOperation(value="创建用户接口")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query",name="id",value="用户名Id",required = true,dataType="long"),
@@ -76,6 +91,11 @@ public class SysUserController {
         }});
    }
 
+    /**
+     * 修改用户信息
+     * @param sysUser
+     * @return
+     */
    @ApiOperation(value="修改用户接口")
    @ApiImplicitParams({
            @ApiImplicitParam(paramType = "query",name="id",value="用户名Id",required = true,dataType="long"),
@@ -105,6 +125,11 @@ public class SysUserController {
        }});
    }
 
+    /**
+     * 删除用户信息
+     * @param id
+     * @return
+     */
     @ApiOperation(value="删除用户接口")
     @GetMapping("/delete/{id}")
     public JsonResult deleteUser( @ApiParam(required=true, name="id", value="用户Id")@PathVariable("id") long id){
