@@ -49,6 +49,10 @@
     select * from sys_user
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+  <select id="list" parameterType="java.lang.Long" resultMap="SysUserDtoBaseResultMap">
+    select * from sys_user
+  </select>
   <select id="selectByNameAndPwd" resultMap="BaseResultMap">
     select * from sys_user where name = #{name} and password = #{pwd}
   </select>

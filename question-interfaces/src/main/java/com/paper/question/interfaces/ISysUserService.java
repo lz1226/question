@@ -1,10 +1,16 @@
 package com.paper.question.interfaces;
 
+import com.paper.question.common.PageResult;
+import com.paper.question.common.Pagination;
 import com.paper.question.domain.dto.SysUserDto;
 import com.paper.question.domain.entity.SysUser;
 
 public interface ISysUserService {
 
+     /**
+      * 分页查询用户信息
+      */
+     PageResult list(Pagination pagination);
      /**
       * 用户登录
       * @param sysUser

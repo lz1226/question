@@ -2,6 +2,7 @@ package com.paper.question.web.controller;
 
 import javax.annotation.Resource;
 
+import com.paper.question.common.Pagination;
 import com.paper.question.domain.dto.SysUserDto;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,12 @@ public class SysUserController {
     public JsonResult login(@RequestBody SysUser sysUser){
        SysUser sysUsers = sysUserService.login(sysUser);
        return JsonResultFactory.get(sysUsers);
+    }
+
+    @ApiOperation(value="通过Id查找用户用户接口")
+    @PostMapping("/list")
+    public JsonResult list( @RequestBody Pagination pagination){
+        return sysUserService.list(pagination);
     }
 
     @ApiOperation(value="通过Id查找用户用户接口")

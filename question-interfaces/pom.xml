@@ -21,6 +21,12 @@
 			<artifactId>question-domain</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.paper</groupId>
+			<artifactId>question-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!--<dependency>-->
 			<!--<groupId>com.github.pagehelper</groupId>-->
 			<!--<artifactId>pagehelper-spring-boot-starter</artifactId>-->

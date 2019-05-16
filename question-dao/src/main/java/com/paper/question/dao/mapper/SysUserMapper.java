@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 public interface SysUserMapper {
 
     int deleteByPrimaryKey(long id);
@@ -20,4 +22,6 @@ public interface SysUserMapper {
     int updateByPrimaryKeySelective(SysUser record);
 
     SysUser selectByNameAndPwd(@Param("name") String name,@Param("pwd") String pwd);
+
+    List<SysUserDto> list();
 }
