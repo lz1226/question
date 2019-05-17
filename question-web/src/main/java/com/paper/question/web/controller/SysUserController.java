@@ -28,9 +28,12 @@ public class SysUserController {
             @ApiImplicitParam(paramType = "query",name="name",value="用户名",required = true,dataType="String"),
             @ApiImplicitParam(paramType = "query",name="password",value="用户密码",required = true,dataType = "String")
     })
-    @PostMapping("login")
+    @PostMapping("/login")
     public JsonResult login(@RequestBody SysUser sysUser){
+        System.out.println("走了");
+        System.out.println(sysUser);
        SysUser sysUsers = sysUserService.login(sysUser);
+        System.out.println("返回信息"+sysUsers);
        return JsonResultFactory.get(sysUsers);
     }
 
@@ -83,7 +86,7 @@ public class SysUserController {
             @ApiImplicitParam(paramType = "query",name="updateTime",value="更新时间",required = false,dataType="Date"),
             @ApiImplicitParam(paramType = "query",name="delFlag",value="是否删除",required = false,dataType="Boolean"),
     })
-    @PostMapping("createUser")
+    @PostMapping("/createUser")
     public JsonResult createUser(@RequestBody SysUser sysUser){
        int userId = sysUserService.createUser(sysUser);
         return JsonResultFactory.get(new HashMap<String,Object>(){{
@@ -117,7 +120,7 @@ public class SysUserController {
            @ApiImplicitParam(paramType = "query",name="updateTime",value="更新时间",required = false,dataType="Date"),
            @ApiImplicitParam(paramType = "query",name="delFlag",value="是否删除",required = false,dataType="Boolean"),
    })
-   @PostMapping("editUser")
+   @PostMapping("/editUser")
    public JsonResult updateUser(@RequestBody SysUser sysUser){
       int userId =  sysUserService.editUser(sysUser);
        return JsonResultFactory.get(new HashMap<String,Object>(){{
