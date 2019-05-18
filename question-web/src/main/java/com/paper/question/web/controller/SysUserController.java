@@ -1,8 +1,10 @@
 package com.paper.question.web.controller;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import com.paper.question.common.Pagination;
+import com.paper.question.domain.dto.LoginDto;
 import com.paper.question.domain.dto.SysUserDto;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
@@ -29,8 +31,12 @@ public class SysUserController {
             @ApiImplicitParam(paramType = "query",name="password",value="用户密码",required = true,dataType = "String")
     })
     @PostMapping("/login")
-    public JsonResult login(@RequestBody SysUser sysUser){
+    public JsonResult login(@RequestBody @Valid LoginDto loginDto){
+        SysUser sysUser = new SysUser();
+        sysUser.setName(loginDto.getName());
+        sysUser.setPassword(loginDto.getPassword());
         System.out.println("走了");
+        System.out.println(loginDto);
         System.out.println(sysUser);
        SysUser sysUsers = sysUserService.login(sysUser);
         System.out.println("返回信息"+sysUsers);
