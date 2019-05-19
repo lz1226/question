@@ -1,5 +1,9 @@
 package com.paper.question.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.paper.question.common.PageResult;
+import com.paper.question.common.Pagination;
 import com.paper.question.dao.mapper.SysRoleMapper;
 import com.paper.question.domain.dto.SysRoleDto;
 import com.paper.question.domain.entity.SysRole;
@@ -7,12 +11,18 @@ import com.paper.question.interfaces.ISysRoleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class SysRoleImpl implements ISysRoleService{
 
     @Resource
     private SysRoleMapper sysRoleMapper;
+
+    @Override
+    public List<SysRoleDto> list() {
+        return sysRoleMapper.list();
+    }
 
     @Override
     public SysRoleDto findById(long id) {

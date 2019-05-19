@@ -3,6 +3,7 @@ package com.paper.question.interfaces;
 import com.paper.question.common.PageResult;
 import com.paper.question.common.Pagination;
 import com.paper.question.domain.dto.SysUserDto;
+import com.paper.question.domain.dto.SysUserEditDto;
 import com.paper.question.domain.entity.SysUser;
 
 public interface ISysUserService {
@@ -34,10 +35,10 @@ public interface ISysUserService {
 
      /**
       * 修改用户信息
-      * @param sysUser
+      * @param sysUserEditDto
       * @return
       */
-     int editUser(SysUser sysUser);
+     int editUser(SysUserEditDto sysUserEditDto);
 
      /**
       * 根据用户的id删除用户信息

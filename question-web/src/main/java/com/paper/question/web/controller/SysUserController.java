@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import com.paper.question.common.Pagination;
 import com.paper.question.domain.dto.LoginDto;
 import com.paper.question.domain.dto.SysUserDto;
+import com.paper.question.domain.dto.SysUserEditDto;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -62,7 +63,7 @@ public class SysUserController {
     @ApiOperation(value="通过Id查找用户接口")
     @GetMapping("/find/{id}")
     public JsonResult findUserById( @ApiParam(required=true, name="id", value="用户Id")@PathVariable("id") long id){
-       SysUserDto sysUser = sysUserService.findById(id);
+        SysUserDto sysUser = sysUserService.findById(id);
         return JsonResultFactory.get(sysUser);
     }
 
@@ -102,7 +103,6 @@ public class SysUserController {
 
     /**
      * 修改用户信息
-     * @param sysUser
      * @return
      */
    @ApiOperation(value="修改用户接口")
@@ -127,8 +127,10 @@ public class SysUserController {
            @ApiImplicitParam(paramType = "query",name="delFlag",value="是否删除",required = false,dataType="Boolean"),
    })
    @PostMapping("/editUser")
-   public JsonResult updateUser(@RequestBody SysUser sysUser){
-      int userId =  sysUserService.editUser(sysUser);
+   public JsonResult updateUser(@RequestBody SysUserEditDto sysUserEditDto){
+       System.out.println("编辑用户信息");
+       System.out.println(sysUserEditDto.getRoleIds());
+      int userId =  sysUserService.editUser(sysUserEditDto);
        return JsonResultFactory.get(new HashMap<String,Object>(){{
            put("userId",userId);
        }});
