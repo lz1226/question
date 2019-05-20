@@ -1,4 +1,4 @@
-package com.paper.question.common;
+package com.paper.question.domain.common;
 
 public class Pagination {
 

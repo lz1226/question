@@ -23,5 +23,7 @@ public interface SysUserMapper {
 
     SysUser selectByNameAndPwd(@Param("name") String name,@Param("pwd") String pwd);
 
-    List<SysUserDto> list();
+    List<SysUserDto> list(@Param("condition")SysUser pagination);
+
+    int batchDelete(Long[] userIds);
 }

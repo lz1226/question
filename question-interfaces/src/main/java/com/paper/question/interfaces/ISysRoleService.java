@@ -1,7 +1,5 @@
 package com.paper.question.interfaces;
 
-import com.paper.question.common.PageResult;
-import com.paper.question.common.Pagination;
 import com.paper.question.domain.dto.SysRoleDto;
 import com.paper.question.domain.entity.SysRole;
 

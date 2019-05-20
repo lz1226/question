@@ -3,7 +3,6 @@ package com.paper.question.web.controller;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
-import com.paper.question.common.Pagination;
 import com.paper.question.domain.dto.LoginDto;
 import com.paper.question.domain.dto.SysUserDto;
 import com.paper.question.domain.dto.SysUserEditDto;
@@ -46,13 +45,14 @@ public class SysUserController {
 
     /**
      * 分页查找用户列表信息
-     * @param pagination
+     * @param sysUser
      * @return
      */
     @ApiOperation(value="查找用户列表接口")
     @PostMapping("/list")
-    public JsonResult list( @RequestBody Pagination pagination){
-        return sysUserService.list(pagination);
+    public JsonResult list( @RequestBody SysUser sysUser){
+
+        return sysUserService.list(sysUser);
     }
 
     /**
@@ -128,8 +128,6 @@ public class SysUserController {
    })
    @PostMapping("/editUser")
    public JsonResult updateUser(@RequestBody SysUserEditDto sysUserEditDto){
-       System.out.println("编辑用户信息");
-       System.out.println(sysUserEditDto.getRoleIds());
       int userId =  sysUserService.editUser(sysUserEditDto);
        return JsonResultFactory.get(new HashMap<String,Object>(){{
            put("userId",userId);
@@ -145,6 +143,23 @@ public class SysUserController {
     @GetMapping("/delete/{id}")
     public JsonResult deleteUser( @ApiParam(required=true, name="id", value="用户Id")@PathVariable("id") long id){
          sysUserService.deleteUser(id);
+        return JsonResultFactory.ok();
+    }
+    /**
+     * 批量删除用户的信息
+     */
+    @PostMapping("batchDelete")
+    public JsonResult batchDelete(@RequestBody Long ids[]){
+        sysUserService.batchDelete(ids);
+        return JsonResultFactory.ok();
+    }
+
+    /**
+     * 更新用户的状态
+     */
+    @GetMapping("/changeStatus/{id}/{status}")
+    public JsonResult changeStatus(@PathVariable("id") long id,@PathVariable("status") Integer status){
+        sysUserService.changeStatus( id,status);
         return JsonResultFactory.ok();
     }
 

@@ -3,9 +3,10 @@ package com.paper.question.domain.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.paper.question.domain.common.Pagination;
 import io.swagger.annotations.ApiParam;
 
-public class SysUser implements Serializable {
+public class SysUser extends Pagination implements Serializable {
 	
 	@ApiParam(hidden = true)
     private Long id;

@@ -1,9 +1,5 @@
 package com.paper.question.service;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import com.paper.question.common.PageResult;
-import com.paper.question.common.Pagination;
 import com.paper.question.dao.mapper.SysRoleMapper;
 import com.paper.question.domain.dto.SysRoleDto;
 import com.paper.question.domain.entity.SysRole;

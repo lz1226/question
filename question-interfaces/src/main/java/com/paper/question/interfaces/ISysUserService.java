@@ -1,7 +1,6 @@
 package com.paper.question.interfaces;
 
 import com.paper.question.common.PageResult;
-import com.paper.question.common.Pagination;
 import com.paper.question.domain.dto.SysUserDto;
 import com.paper.question.domain.dto.SysUserEditDto;
 import com.paper.question.domain.entity.SysUser;
@@ -11,7 +10,7 @@ public interface ISysUserService {
      /**
       * 分页查询用户信息
       */
-     PageResult list(Pagination pagination);
+     PageResult list( SysUser sysUser);
      /**
       * 用户登录
       * @param sysUser
@@ -46,4 +45,14 @@ public interface ISysUserService {
       * @return
       */
      int deleteUser(long userId);
+
+     int batchDelete(Long userIds[]);
+
+     /**
+      * 修改用户的状态
+      * @param id
+      * @param status
+      * @return
+      */
+     int changeStatus(long id,Integer status);
 }

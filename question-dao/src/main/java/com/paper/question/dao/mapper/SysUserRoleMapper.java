@@ -13,7 +13,6 @@ public interface SysUserRoleMapper {
 
     SysUserRole selectByPrimaryKey(Long id);
 
-
     int updateByPrimaryKeySelective(SysUserRole sysUserRole);
 
     int updateByPrimaryKey(SysUserRole sysUserRole);

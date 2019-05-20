@@ -2,7 +2,6 @@ package com.paper.question.web.controller;
 
 import com.paper.question.common.JsonResult;
 import com.paper.question.common.JsonResultFactory;
-import com.paper.question.common.Pagination;
 import com.paper.question.domain.dto.SysRoleDto;
 import com.paper.question.domain.entity.SysRole;
 import com.paper.question.interfaces.ISysRoleService;

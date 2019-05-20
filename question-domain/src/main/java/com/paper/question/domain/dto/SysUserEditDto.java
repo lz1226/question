@@ -1,10 +1,8 @@
 package com.paper.question.domain.dto;
 
 import com.paper.question.domain.entity.SysUser;
-import io.swagger.annotations.ApiParam;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 public class SysUserEditDto implements Serializable {
