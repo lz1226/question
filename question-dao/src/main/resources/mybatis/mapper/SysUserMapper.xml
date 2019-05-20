@@ -49,6 +49,23 @@
     select * from sys_user
     where id = #{id,jdbcType=BIGINT}
   </select>
+
+  <select id="list" parameterType="java.lang.Long" resultMap="SysUserDtoBaseResultMap">
+    select * from sys_user
+    <include refid="conditionSql"></include>
+  </select>
+
+  <sql id="conditionSql">
+      <where>
+        <if test="condition.account != null and condition.account != ''">
+           and account like concat('%',#{condition.account},'%')
+        </if>
+        <if test="condition.name != null and condition.name != ''">
+            and name like concat('%',#{condition.name},'%')
+        </if>
+      </where>
+  </sql>
+
   <select id="selectByNameAndPwd" resultMap="BaseResultMap">
     select * from sys_user where name = #{name} and password = #{pwd}
   </select>
@@ -57,6 +74,14 @@
     delete from sys_user
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
+  <delete id="batchDelete"  parameterType = "java.util.ArrayList">
+    delete from sys_user  where id in
+    <foreach item="item" collection="array" open="(" separator="," close=")">
+      #{item}
+    </foreach>
+  </delete>
+
   <insert id="insertSelective"
           useGeneratedKeys="true"
           keyProperty="id"

@@ -7,12 +7,18 @@ import com.paper.question.interfaces.ISysRoleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class SysRoleImpl implements ISysRoleService{
 
     @Resource
     private SysRoleMapper sysRoleMapper;
+
+    @Override
+    public List<SysRoleDto> list() {
+        return sysRoleMapper.list();
+    }
 
     @Override
     public SysRoleDto findById(long id) {

@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.cors.CorsConfiguration;
 
 @EnableTransactionManagement
 @SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
@@ -22,7 +23,7 @@ public class QuestionWebApplication {
 //		corsConfiguration.addAllowedMethod("*");
 //		return corsConfiguration;
 //	}
-//
+
 //	@Bean
 //	public CorsFilter corsFilter(){
 //		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

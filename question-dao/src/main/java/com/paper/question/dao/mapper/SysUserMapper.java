@@ -1,11 +1,13 @@
 package com.paper.question.dao.mapper;
 
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.paper.question.domain.dto.SysUserDto;
 import com.paper.question.domain.entity.SysUser;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 public interface SysUserMapper {
 
@@ -33,4 +35,8 @@ public interface SysUserMapper {
      * @return user/admin
      */
     SysUser getRole(String username);
+
+    List<SysUserDto> list(@Param("condition")SysUser pagination);
+
+    int batchDelete(Long[] userIds);
 }

@@ -19,6 +19,15 @@ public class SysRoleController {
     @Resource
     private ISysRoleService sysRoleService;
 
+    /**
+     * 查找用户角色列表信息
+     * @return
+     */
+    @ApiOperation(value="查找用户列表接口")
+    @PostMapping("/list")
+    public JsonResult list(){
+        return JsonResultFactory.get(sysRoleService.list());
+    }
     @ApiOperation(value="通过Id查找角色接口")
     @GetMapping("/find/{id}")
     public JsonResult findById(@ApiParam(required=true, name="id", value="角色Id")@PathVariable("id") long id){

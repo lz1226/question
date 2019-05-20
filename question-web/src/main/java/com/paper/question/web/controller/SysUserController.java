@@ -1,8 +1,11 @@
 package com.paper.question.web.controller;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
+import com.paper.question.domain.dto.LoginDto;
 import com.paper.question.domain.dto.SysUserDto;
+import com.paper.question.domain.dto.SysUserEditDto;
 import io.swagger.annotations.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,19 +30,48 @@ public class SysUserController {
             @ApiImplicitParam(paramType = "query",name="name",value="用户名",required = true,dataType="String"),
             @ApiImplicitParam(paramType = "query",name="password",value="用户密码",required = true,dataType = "String")
     })
-    @PostMapping("login")
-    public JsonResult login(@RequestBody SysUser sysUser){
+    @PostMapping("/login")
+    public JsonResult login(@RequestBody @Valid LoginDto loginDto){
+        SysUser sysUser = new SysUser();
+        sysUser.setName(loginDto.getName());
+        sysUser.setPassword(loginDto.getPassword());
+        System.out.println("走了");
+        System.out.println(loginDto);
+        System.out.println(sysUser);
        SysUser sysUsers = sysUserService.login(sysUser);
+        System.out.println("返回信息"+sysUsers);
        return JsonResultFactory.get(sysUsers);
     }
 
-    @ApiOperation(value="通过Id查找用户用户接口")
+    /**
+     * 分页查找用户列表信息
+     * @param sysUser
+     * @return
+     */
+    @ApiOperation(value="查找用户列表接口")
+    @PostMapping("/list")
+    public JsonResult list( @RequestBody SysUser sysUser){
+
+        return sysUserService.list(sysUser);
+    }
+
+    /**
+     * 根据用户的id查找用户信息
+     * @param id
+     * @return
+     */
+    @ApiOperation(value="通过Id查找用户接口")
     @GetMapping("/find/{id}")
     public JsonResult findUserById( @ApiParam(required=true, name="id", value="用户Id")@PathVariable("id") long id){
-       SysUserDto sysUser = sysUserService.findById(id);
+        SysUserDto sysUser = sysUserService.findById(id);
         return JsonResultFactory.get(sysUser);
     }
 
+    /**
+     * 创建用户信息
+     * @param sysUser
+     * @return
+     */
     @ApiOperation(value="创建用户接口")
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query",name="id",value="用户名Id",required = true,dataType="long"),
@@ -61,7 +93,7 @@ public class SysUserController {
             @ApiImplicitParam(paramType = "query",name="updateTime",value="更新时间",required = false,dataType="Date"),
             @ApiImplicitParam(paramType = "query",name="delFlag",value="是否删除",required = false,dataType="Boolean"),
     })
-    @PostMapping("createUser")
+    @PostMapping("/createUser")
     public JsonResult createUser(@RequestBody SysUser sysUser){
        int userId = sysUserService.createUser(sysUser);
         return JsonResultFactory.get(new HashMap<String,Object>(){{
@@ -69,6 +101,10 @@ public class SysUserController {
         }});
    }
 
+    /**
+     * 修改用户信息
+     * @return
+     */
    @ApiOperation(value="修改用户接口")
    @ApiImplicitParams({
            @ApiImplicitParam(paramType = "query",name="id",value="用户名Id",required = true,dataType="long"),
@@ -90,18 +126,40 @@ public class SysUserController {
            @ApiImplicitParam(paramType = "query",name="updateTime",value="更新时间",required = false,dataType="Date"),
            @ApiImplicitParam(paramType = "query",name="delFlag",value="是否删除",required = false,dataType="Boolean"),
    })
-   @PostMapping("editUser")
-   public JsonResult updateUser(@RequestBody SysUser sysUser){
-      int userId =  sysUserService.editUser(sysUser);
+   @PostMapping("/editUser")
+   public JsonResult updateUser(@RequestBody SysUserEditDto sysUserEditDto){
+      int userId =  sysUserService.editUser(sysUserEditDto);
        return JsonResultFactory.get(new HashMap<String,Object>(){{
            put("userId",userId);
        }});
    }
 
+    /**
+     * 删除用户信息
+     * @param id
+     * @return
+     */
     @ApiOperation(value="删除用户接口")
     @GetMapping("/delete/{id}")
     public JsonResult deleteUser( @ApiParam(required=true, name="id", value="用户Id")@PathVariable("id") long id){
          sysUserService.deleteUser(id);
+        return JsonResultFactory.ok();
+    }
+    /**
+     * 批量删除用户的信息
+     */
+    @PostMapping("batchDelete")
+    public JsonResult batchDelete(@RequestBody Long ids[]){
+        sysUserService.batchDelete(ids);
+        return JsonResultFactory.ok();
+    }
+
+    /**
+     * 更新用户的状态
+     */
+    @GetMapping("/changeStatus/{id}/{status}")
+    public JsonResult changeStatus(@PathVariable("id") long id,@PathVariable("status") Integer status){
+        sysUserService.changeStatus( id,status);
         return JsonResultFactory.ok();
     }
 
