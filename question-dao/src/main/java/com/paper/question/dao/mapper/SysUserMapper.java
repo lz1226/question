@@ -27,14 +27,14 @@ public interface SysUserMapper {
      * 获得密码
      * @param username 用户名
      */
-    String getPassword(String username);
+    String getPassword(@Param("username")String username);
 
     /**
      * 获得角色权限
      * @param username 用户名
      * @return user/admin
      */
-    SysUser getRole(String username);
+    SysUser getRole(@Param("username")String username);
 
     List<SysUserDto> list(@Param("condition")SysUser pagination);
 

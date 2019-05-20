@@ -263,12 +263,12 @@
 	<select id="getPassword" parameterType="String" resultType="String">
         SELECT password
         FROM sys_user
-        WHERE username = #{username}
+        WHERE name = #{username}
     </select>
 	<!-- 配置shiro 用到的方法   需要修改sql-->
-    <select id="getRole" parameterType="String" resultType="String">
-        SELECT role
+    <select id="getRole" parameterType="String" resultType="com.paper.question.domain.entity.SysUser">
+        SELECT *
         FROM sys_user
-        WHERE username = #{username}
+        WHERE name = #{username}
     </select>
 </mapper>

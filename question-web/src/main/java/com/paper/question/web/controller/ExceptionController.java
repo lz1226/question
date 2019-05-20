@@ -1,4 +1,4 @@
-package com.paperquestion.shiro.controller;
+package com.paper.question.web.controller;
 
 import com.paper.question.common.JsonResult;
 import com.paper.question.common.JsonResultFactory;

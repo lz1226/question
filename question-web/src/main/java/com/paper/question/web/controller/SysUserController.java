@@ -27,24 +27,6 @@ public class SysUserController {
     private ISysUserService sysUserService;
 
     
-    @ApiOperation(value="用户登录接口")
-    @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query",name="name",value="用户名",required = true,dataType="String"),
-            @ApiImplicitParam(paramType = "query",name="password",value="用户密码",required = true,dataType = "String")
-    })
-    @PostMapping("/login")
-    public JsonResult login(@RequestBody @Valid LoginDto loginDto){
-        SysUser sysUser = new SysUser();
-        sysUser.setName(loginDto.getName());
-        sysUser.setPassword(loginDto.getPassword());
-        System.out.println("走了");
-        System.out.println(loginDto);
-        System.out.println(sysUser);
-       SysUser sysUsers = sysUserService.login(sysUser);
-        System.out.println("返回信息"+sysUsers);
-       return JsonResultFactory.get(sysUsers);
-    }
-
     /**
      * 分页查找用户列表信息
      * @param sysUser
@@ -53,7 +35,7 @@ public class SysUserController {
     @ApiOperation(value="查找用户列表接口")
     @PostMapping("/list")
     @RequiresPermissions("sys:user:list")
-    public JsonResult list( @RequestBody SysUser sysUser){
+    public JsonResult list( SysUser sysUser){
         return sysUserService.list(sysUser);
     }
 
