@@ -1,6 +1,7 @@
 D:\document\paperSys\question\question-domain\src\main\java\com\paper\question\domain\dto\SysUserDto.java
 D:\document\paperSys\question\question-domain\src\main\java\com\paper\question\domain\dto\SysMenuDto.java
 D:\document\paperSys\question\question-domain\src\main\java\com\paper\question\domain\dto\SysUserEditDto.java
+D:\document\paperSys\question\question-domain\src\main\java\com\paper\question\shiro\domain\ResourceMap.java
 D:\document\paperSys\question\question-domain\src\main\java\com\paper\question\domain\dto\common\FileUploadDto.java
 D:\document\paperSys\question\question-domain\src\main\java\com\paper\question\domain\entity\SysMenu.java
 D:\document\paperSys\question\question-domain\src\main\java\com\paper\question\domain\entity\SysRoleMenu.java

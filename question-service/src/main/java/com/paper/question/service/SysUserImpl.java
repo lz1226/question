@@ -1,8 +1,18 @@
 package com.paper.question.service;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.paper.question.common.PageResult;
+import com.paper.question.dao.mapper.SysMenuMapper;
+import com.paper.question.dao.mapper.SysRoleMapper;
 import com.paper.question.dao.mapper.SysUserMapper;
 import com.paper.question.dao.mapper.SysUserRoleMapper;
 import com.paper.question.domain.dto.SysUserDto;
@@ -10,9 +20,7 @@ import com.paper.question.domain.dto.SysUserEditDto;
 import com.paper.question.domain.entity.SysUser;
 import com.paper.question.domain.entity.SysUserRole;
 import com.paper.question.interfaces.ISysUserService;
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import java.util.List;
+import com.paper.question.shiro.domain.ResourceMap;
 
 
 @Service
@@ -24,6 +32,13 @@ public class SysUserImpl implements ISysUserService{
     @Resource
     private SysUserRoleMapper sysUserRoleMapper;
 
+    @Resource
+    private SysRoleMapper sysRoleMapper;
+
+    @Resource
+    private SysMenuMapper sysMenuMapper;
+    
+    
     @Override
     public PageResult list( SysUser pagination) {
         System.out.println("用户分页");
@@ -90,7 +105,26 @@ public class SysUserImpl implements ISysUserService{
     public int deleteUser(long userId) {
         return sysUserMapper.deleteByPrimaryKey(userId);
     }
-
+    
+   
+	@Override
+	public ResourceMap selectResourceMapByUserId(Long id) {
+		Set roles=new HashSet();
+		Set permissions=new HashSet();
+		List<String> list = sysRoleMapper.selectRolesByUserid(id);
+		for (String roleId : list) {
+			List<String> permission = sysMenuMapper.selectMenuByRolecode(Long.parseLong(roleId));
+			for (String sign : permission) {
+				permissions.add(sign);
+			}
+			roles.add(roleId);
+		}
+		//需要写逻辑
+		ResourceMap resourceMap = new ResourceMap();		
+		resourceMap.setRoleSet(roles);
+		resourceMap.setPermissionSet(permissions);
+		return resourceMap;
+	}
     @Override
     public int batchDelete(Long[] userIds) {
         return sysUserMapper.batchDelete(userIds);

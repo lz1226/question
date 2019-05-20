@@ -1,13 +1,13 @@
 package com.paper.question.dao.mapper;
 
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.paper.question.domain.dto.SysUserDto;
 import com.paper.question.domain.entity.SysUser;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-
-import java.util.List;
 
 public interface SysUserMapper {
 
@@ -22,6 +22,19 @@ public interface SysUserMapper {
     int updateByPrimaryKeySelective(SysUser record);
 
     SysUser selectByNameAndPwd(@Param("name") String name,@Param("pwd") String pwd);
+    
+    /**
+     * 获得密码
+     * @param username 用户名
+     */
+    String getPassword(String username);
+
+    /**
+     * 获得角色权限
+     * @param username 用户名
+     * @return user/admin
+     */
+    SysUser getRole(String username);
 
     List<SysUserDto> list(@Param("condition")SysUser pagination);
 

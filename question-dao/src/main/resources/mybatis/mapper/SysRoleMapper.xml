@@ -88,4 +88,11 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectRolesByUserid"  parameterType="java.lang.Long" resultType="String">
+  	select u.role_id from `sys_user_role` u
+	left join `sys_role` r on r.id = u.role_id
+ 	where user_id = #{id}
+  </select>
+  
+  
 </mapper>

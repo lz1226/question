@@ -11,3 +11,4 @@ com\paper\question\domain\dto\common\ImageResource.class
 com\paper\question\domain\common\Pagination.class
 com\paper\question\domain\dto\SysRoleDto.class
 com\paper\question\domain\dto\common\FileUploadDto.class
+com\paper\question\shiro\domain\ResourceMap.class

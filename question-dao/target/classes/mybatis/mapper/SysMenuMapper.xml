@@ -175,4 +175,9 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="selectMenuByRolecode" resultType="java.lang.String" parameterType="java.lang.Long">
+  	select m.perms from `sys_role_menu` r
+	left join `sys_menu` m on m.id = r.menu_id
+	where r.role_id = #{id}
+  </select>
 </mapper>
