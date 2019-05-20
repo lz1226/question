@@ -232,6 +232,18 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-
-
+	
+	
+	<!--配置shiro 用到的方法  需要修改sql -->
+	<select id="getPassword" parameterType="String" resultType="String">
+        SELECT password
+        FROM sys_user
+        WHERE username = #{username}
+    </select>
+	<!-- 配置shiro 用到的方法   需要修改sql-->
+    <select id="getRole" parameterType="String" resultType="String">
+        SELECT role
+        FROM sys_user
+        WHERE username = #{username}
+    </select>
 </mapper>

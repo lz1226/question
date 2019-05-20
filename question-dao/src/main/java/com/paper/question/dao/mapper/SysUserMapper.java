@@ -20,4 +20,17 @@ public interface SysUserMapper {
     int updateByPrimaryKeySelective(SysUser record);
 
     SysUser selectByNameAndPwd(@Param("name") String name,@Param("pwd") String pwd);
+    
+    /**
+     * 获得密码
+     * @param username 用户名
+     */
+    String getPassword(String username);
+
+    /**
+     * 获得角色权限
+     * @param username 用户名
+     * @return user/admin
+     */
+    SysUser getRole(String username);
 }
