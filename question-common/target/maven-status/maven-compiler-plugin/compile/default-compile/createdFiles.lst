@@ -7,4 +7,3 @@ com\paper\question\common\JsonResultFactory.class
 com\paper\question\common\ReturnCode.class
 com\paper\question\common\util\DateTimeUtil$Formatter.class
 com\paper\question\common\PageResult$PageInfo.class
-com\paper\question\common\Pagination.class

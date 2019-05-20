@@ -10,12 +10,8 @@ import com.paper.question.domain.dto.SysUserEditDto;
 import com.paper.question.domain.entity.SysUser;
 import com.paper.question.domain.entity.SysUserRole;
 import com.paper.question.interfaces.ISysUserService;
-<<<<<<< HEAD
 import com.paper.question.shiro.domain.ResourceMap;
 
-import org.springframework.beans.factory.annotation.Autowired;
-=======
->>>>>>> 72e304e4f0e0b63da055d9995e00b6dd70995a65
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
@@ -97,7 +93,6 @@ public class SysUserImpl implements ISysUserService{
         return sysUserMapper.deleteByPrimaryKey(userId);
     }
 
-<<<<<<< HEAD
 	@Override
 	public ResourceMap selectResourceMapByUserId(Long id) {
 //		List<String> list=hmrolemapper.selectRolesByUserid(userId);
@@ -122,7 +117,6 @@ public class SysUserImpl implements ISysUserService{
 		resourceMap.setPermissionSet(null);
 		return resourceMap;
 	}
-=======
     @Override
     public int batchDelete(Long[] userIds) {
         return sysUserMapper.batchDelete(userIds);
@@ -135,5 +129,4 @@ public class SysUserImpl implements ISysUserService{
         sysUser.setStatus(status);
         return sysUserMapper.updateByPrimaryKeySelective(sysUser);
     }
->>>>>>> 72e304e4f0e0b63da055d9995e00b6dd70995a65
 }

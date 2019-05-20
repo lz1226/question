@@ -46,8 +46,7 @@ public interface ISysUserService {
       * @return
       */
      int deleteUser(long userId);
-<<<<<<< HEAD
-     
+
      /**
       * 
       * @description: 根据用户id 查询到用户的角色 和 权限
@@ -57,7 +56,6 @@ public interface ISysUserService {
       * @update 2019年5月20日 下午4:30:21
       */
      ResourceMap selectResourceMapByUserId(Long id);
-=======
 
      int batchDelete(Long userIds[]);
 
@@ -68,5 +66,4 @@ public interface ISysUserService {
       * @return
       */
      int changeStatus(long id,Integer status);
->>>>>>> 72e304e4f0e0b63da055d9995e00b6dd70995a65
 }
