@@ -3,8 +3,11 @@ com\paper\question\domain\entity\SysRole.class
 com\paper\question\domain\entity\SysUser.class
 com\paper\question\domain\dto\LoginDto.class
 com\paper\question\domain\dto\SysUserEditDto.class
-com\paper\question\domain\dto\SysRoleDto.class
 com\paper\question\domain\entity\SysRoleMenu.class
 com\paper\question\domain\entity\SysUserRole.class
 com\paper\question\domain\dto\SysMenuDto.class
 com\paper\question\domain\dto\SysUserDto.class
+com\paper\question\domain\dto\common\ImageResource.class
+com\paper\question\domain\common\Pagination.class
+com\paper\question\domain\dto\SysRoleDto.class
+com\paper\question\domain\dto\common\FileUploadDto.class

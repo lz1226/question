@@ -10,6 +10,7 @@ com\paper\question\web\config\DataSourceConfig.class
 com\paper\question\web\controller\SysMenuController$2.class
 com\paper\question\web\controller\SysRoleController$2.class
 com\paper\question\web\controller\SysUserRoleController$2.class
+com\paper\question\web\controller\common\FileUploadController.class
 com\paper\question\web\controller\SysUserRoleController$1.class
 com\paper\question\web\controller\SysUserRoleController.class
 com\paper\question\web\controller\SysRoleMenuController$1.class
