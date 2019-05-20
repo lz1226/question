@@ -1,8 +1,18 @@
 package com.paper.question.service;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.paper.question.common.PageResult;
+import com.paper.question.dao.mapper.SysMenuMapper;
+import com.paper.question.dao.mapper.SysRoleMapper;
 import com.paper.question.dao.mapper.SysUserMapper;
 import com.paper.question.dao.mapper.SysUserRoleMapper;
 import com.paper.question.domain.dto.SysUserDto;
@@ -11,10 +21,6 @@ import com.paper.question.domain.entity.SysUser;
 import com.paper.question.domain.entity.SysUserRole;
 import com.paper.question.interfaces.ISysUserService;
 import com.paper.question.shiro.domain.ResourceMap;
-
-import org.springframework.stereotype.Service;
-import javax.annotation.Resource;
-import java.util.List;
 
 
 @Service
@@ -26,6 +32,13 @@ public class SysUserImpl implements ISysUserService{
     @Resource
     private SysUserRoleMapper sysUserRoleMapper;
 
+    @Resource
+    private SysRoleMapper sysRoleMapper;
+
+    @Resource
+    private SysMenuMapper sysMenuMapper;
+    
+    
     @Override
     public PageResult list( SysUser pagination) {
         System.out.println("用户分页");
@@ -92,29 +105,24 @@ public class SysUserImpl implements ISysUserService{
     public int deleteUser(long userId) {
         return sysUserMapper.deleteByPrimaryKey(userId);
     }
-
+    
+   
 	@Override
 	public ResourceMap selectResourceMapByUserId(Long id) {
-//		List<String> list=hmrolemapper.selectRolesByUserid(userId);
-//		ResourceMap resourcemap=new ResourceMap();
-//		Set roles=new HashSet();
-//		Set permissions=new HashSet();
-//		for(String rolecode :list){
-//			List<String> permission=hmpermissionmapper.selectPermissionByRolecode(rolecode);
-//			for(String sign:permission){
-//				permissions.add(sign);
-//			}
-//			roles.add(rolecode);
-//		}
-		
-		
+		Set roles=new HashSet();
+		Set permissions=new HashSet();
+		List<String> list = sysRoleMapper.selectRolesByUserid(id);
+		for (String roleId : list) {
+			List<String> permission = sysMenuMapper.selectMenuByRolecode(Long.parseLong(roleId));
+			for (String sign : permission) {
+				permissions.add(sign);
+			}
+			roles.add(roleId);
+		}
 		//需要写逻辑
-		ResourceMap resourceMap = new ResourceMap();
-		//用户id 获取到改用户的 所有角色   然后根据角色 去拿角色的权限
-		//然后附上值
-		
-		resourceMap.setRoleSet(null);
-		resourceMap.setPermissionSet(null);
+		ResourceMap resourceMap = new ResourceMap();		
+		resourceMap.setRoleSet(roles);
+		resourceMap.setPermissionSet(permissions);
 		return resourceMap;
 	}
     @Override

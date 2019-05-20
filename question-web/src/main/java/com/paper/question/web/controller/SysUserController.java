@@ -7,6 +7,8 @@ import com.paper.question.domain.dto.LoginDto;
 import com.paper.question.domain.dto.SysUserDto;
 import com.paper.question.domain.dto.SysUserEditDto;
 import io.swagger.annotations.*;
+
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 import com.paper.question.common.JsonResult;
@@ -50,8 +52,8 @@ public class SysUserController {
      */
     @ApiOperation(value="查找用户列表接口")
     @PostMapping("/list")
+    @RequiresPermissions("sys:user:list")
     public JsonResult list( @RequestBody SysUser sysUser){
-
         return sysUserService.list(sysUser);
     }
 

@@ -18,4 +18,6 @@ public interface SysRoleMapper {
     List<SysRoleDto> list();
 
     int updateByPrimaryKeySelective(SysRole record);
+    
+    List<String> selectRolesByUserid(Long id);
 }

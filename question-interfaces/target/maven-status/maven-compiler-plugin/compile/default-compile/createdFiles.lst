@@ -1,5 +1,5 @@
 com\paper\question\interfaces\ISysMenuService.class
-com\paper\question\interfaces\ISysRoleService.class
 com\paper\question\interfaces\ISysUserService.class
-com\paper\question\interfaces\ISysRoleMenuService.class
 com\paper\question\interfaces\ISysUserRoleService.class
+com\paper\question\interfaces\ISysRoleService.class
+com\paper\question\interfaces\ISysRoleMenuService.class
