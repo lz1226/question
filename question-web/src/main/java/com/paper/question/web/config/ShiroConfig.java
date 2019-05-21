@@ -50,11 +50,10 @@ public class ShiroConfig {
 		//游客，开发权限
         //开放登陆接口
         filterChainDefinitionMap.put("/login", "anon");
-        filterChainDefinitionMap.put("/swagger-ui.html", "anon");
+        filterChainDefinitionMap.put("/swagger-ui.html/*", "anon");
         
         //其余接口一律拦截
         //主要这行代码必须放在所有权限设置的最后，不然会导致所有 url 都被拦截
-        filterChainDefinitionMap.put("/**", "authc");
 		
 		
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
