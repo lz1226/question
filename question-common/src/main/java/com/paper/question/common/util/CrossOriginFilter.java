@@ -32,10 +32,11 @@ public class CrossOriginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse resp = (HttpServletResponse) response;
-        resp.addHeader("Access-Control-Allow-Origin", "*");
+        resp.addHeader("Access-Control-Allow-Origin", "http://localhost:8081");
         resp.addHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
         resp.addHeader("Access-Control-Allow-Headers", "Token,Content-Type,Authorization,Content-Disposition,Accept,ServerTime,x_requested_with");
         resp.addHeader("Access-Control-Expose-Headers", "Token,Content-Type,Authorization,Content-Disposition,Accept,ServerTime");
+        resp.addHeader("Access-Control-Allow-Credentials", "true");
 
         // 添加服务器当前时间的响应头设置
         resp.addHeader("ServerTime", Integer.toString(DateTimeUtil.nowSecond2()));

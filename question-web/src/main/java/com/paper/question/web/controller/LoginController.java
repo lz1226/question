@@ -62,11 +62,12 @@ public class LoginController {
         subject.login(token);
         //根据权限，指定返回数据
         String role = sysUserMapper.getRole(loginDto.getName()).getName();
+        loginDto.setSessionId(subject.getSession().getId().toString());
         if ("user".equals(role)) {
-            return JsonResultFactory.get("欢迎登陆");
+            return JsonResultFactory.get(loginDto);
         }
         if ("admin".equals(role)) {
-            return JsonResultFactory.get("欢迎来到管理员页面");
+            return JsonResultFactory.get(loginDto);
         }
         return JsonResultFactory.get("权限错误！");
     }

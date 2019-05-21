@@ -8,6 +8,8 @@ public class LoginDto {
 
     SysUser sysUser;
 
+    String sessionId;
+
     public String getName() {
         return name;
     }
@@ -32,12 +34,22 @@ public class LoginDto {
         this.sysUser = sysUser;
     }
 
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
+
+
     @Override
     public String toString() {
         return "LoginDto{" +
                 "name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", sysUser=" + sysUser +
+                ", sessionId='" + sessionId + '\'' +
                 '}';
     }
 }
