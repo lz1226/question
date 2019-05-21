@@ -50,11 +50,10 @@ public class LoginController {
     /**
      * 登陆
      *
-     * @param username 用户名
-     * @param password 密码
+     * @param loginDto 用户名
      */
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public JsonResult login( LoginDto loginDto) {
+    public JsonResult login(@RequestBody LoginDto loginDto) {
         // 从SecurityUtils里边创建一个 subject
         Subject subject = SecurityUtils.getSubject();
         // 在认证提交前准备 token（令牌）

@@ -35,7 +35,7 @@ public class SysUserController {
     @ApiOperation(value="查找用户列表接口")
     @PostMapping("/list")
     @RequiresPermissions("sys:user:list")
-    public JsonResult list( SysUser sysUser){
+    public JsonResult list(@RequestBody SysUser sysUser){
         return sysUserService.list(sysUser);
     }
 

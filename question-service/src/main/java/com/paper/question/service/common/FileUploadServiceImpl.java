@@ -35,7 +35,7 @@ public class FileUploadServiceImpl implements IFileUploadService {
         uploadFileResponseList.forEach(resp -> {
             SysUser sysUser = new SysUser();
             //用户的id
-            long id = 1;
+            long id = 2;
             sysUser.setId(id);
             sysUser.setAvatar(resp.getFileDownloadUri());
             sysUserMapper.updateByPrimaryKeySelective(sysUser);
