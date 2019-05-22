@@ -1,10 +1,10 @@
 package com.paper.question.domain.entity;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import com.paper.question.domain.common.Pagination;
 import io.swagger.annotations.ApiParam;
+
+import java.io.Serializable;
+import java.util.Date;
 
 public class SysUser extends Pagination implements Serializable {
 	
@@ -44,6 +44,7 @@ public class SysUser extends Pagination implements Serializable {
     private Date updateTime;
 	@ApiParam(hidden = true)
     private Boolean delFlag;
+	private Integer headImageId;
 
     public Long getId() {
         return id;
@@ -189,6 +190,14 @@ public class SysUser extends Pagination implements Serializable {
         this.delFlag = delFlag;
     }
 
+    public Integer getHeadImageId() {
+        return headImageId;
+    }
+
+    public void setHeadImageId(Integer headImageId) {
+        this.headImageId = headImageId;
+    }
+
     @Override
     public String toString() {
         return "SysUser{" +
@@ -210,6 +219,7 @@ public class SysUser extends Pagination implements Serializable {
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", delFlag=" + delFlag +
+                ", headImageId=" + headImageId +
                 '}';
     }
 }

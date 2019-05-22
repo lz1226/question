@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--suppress ALL -->
+<mapper namespace="com.paper.question.dao.mapper.ImageResourceMapper">
+
+    <resultMap id="BaseResultMap" type="com.paper.question.domain.entity.ImageResource">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="size" jdbcType="INTEGER" property="size"/>
+        <result column="width" jdbcType="SMALLINT" property="width"/>
+        <result column="height" jdbcType="SMALLINT" property="height"/>
+    </resultMap>
+
+    <insert id="insertSelective"
+            useGeneratedKeys="true"
+            keyProperty="id"
+            parameterType="com.paper.question.domain.entity.ImageResource">
+        insert into image_resource
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="url != null">
+                url,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="size != null">
+                size,
+            </if>
+            <if test="width != null">
+                width,
+            </if>
+            <if test="height != null">
+                height,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="url != null">
+                #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="size != null">
+                #{size,jdbcType=INTEGER},
+            </if>
+            <if test="width != null">
+                #{width,jdbcType=SMALLINT},
+            </if>
+            <if test="height != null">
+                #{height,jdbcType=SMALLINT},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.paper.question.domain.entity.ImageResource">
+        update image_resource
+        <set>
+            <if test="url != null">
+                url = #{url,jdbcType=VARCHAR},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="size != null">
+                size = #{size,jdbcType=INTEGER},
+            </if>
+            <if test="width != null">
+                width = #{width,jdbcType=SMALLINT},
+            </if>
+            <if test="height != null">
+                height = #{height,jdbcType=SMALLINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="findImageResource" resultMap="BaseResultMap">
+        select * from image_resource where id = #{resourceId}
+    </select>
+
+</mapper>

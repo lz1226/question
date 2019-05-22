@@ -43,6 +43,8 @@ public class SysUserDto implements Serializable {
     private Date updateTime;
 	@ApiParam(hidden = true)
     private Boolean delFlag;
+	private String headImage;
+	private Integer headImageId;
 
     public Long getId() {
         return id;
@@ -188,9 +190,25 @@ public class SysUserDto implements Serializable {
         this.delFlag = delFlag;
     }
 
+    public Integer getHeadImageId() {
+        return headImageId;
+    }
+
+    public void setHeadImageId(Integer headImageId) {
+        this.headImageId = headImageId;
+    }
+
+    public String getHeadImage() {
+        return headImage;
+    }
+
+    public void setHeadImage(String headImage) {
+        this.headImage = headImage;
+    }
+
     @Override
     public String toString() {
-        return "SysUser{" +
+        return "SysUserDto{" +
                 "id=" + id +
                 ", avatar='" + avatar + '\'' +
                 ", account='" + account + '\'' +
@@ -209,6 +227,8 @@ public class SysUserDto implements Serializable {
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", delFlag=" + delFlag +
+                ", headImage='" + headImage + '\'' +
+                ", headImageId=" + headImageId +
                 '}';
     }
 }

@@ -20,6 +20,7 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="del_flag" jdbcType="BIT" property="delFlag" />
+    <result column="head_image_id" jdbcType="INTEGER" property="headImageId" />
   </resultMap>
   <resultMap id="SysUserDtoBaseResultMap" type="com.paper.question.domain.dto.SysUserDto">
     <id column="id" jdbcType="BIGINT" property="id" />
@@ -40,18 +41,22 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="del_flag" jdbcType="BIT" property="delFlag" />
+    <result column="url" jdbcType="INTEGER" property="headImage" />
+    <result column="head_image_id" jdbcType="INTEGER" property="headImageId" />
   </resultMap>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select * from sys_user
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="finById" parameterType="java.lang.Long" resultMap="SysUserDtoBaseResultMap">
-    select * from sys_user
-    where id = #{id,jdbcType=BIGINT}
+    select *,i.url from sys_user s
+    left join image_resource i on i.id = s.head_image_id
+    where s.id = #{id,jdbcType=BIGINT}
   </select>
 
   <select id="list" parameterType="java.lang.Long" resultMap="SysUserDtoBaseResultMap">
-    select * from sys_user
+    select *,i.url from sys_user s
+    left join image_resource i on i.id = s.head_image_id
     <include refid="conditionSql"></include>
   </select>
 
@@ -142,6 +147,9 @@
       <if test="delFlag != null">
         del_flag,
       </if>
+      <if test="headImageId != null">
+        head_image_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -198,6 +206,9 @@
       <if test="delFlag != null">
         #{delFlag,jdbcType=BIT},
       </if>
+      <if test="headImageId != null">
+        #{headImageId,jdbcType=INTEGER},
+      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.paper.question.domain.entity.SysUser">
@@ -253,6 +264,9 @@
       </if>
       <if test="delFlag != null">
         del_flag = #{delFlag,jdbcType=BIT},
+      </if>
+      <if test="headImageId != null">
+        head_image_id = #{headImageId,jdbcType=BIT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
