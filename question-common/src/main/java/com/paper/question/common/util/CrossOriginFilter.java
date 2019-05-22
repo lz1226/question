@@ -25,9 +25,6 @@ public class CrossOriginFilter implements Filter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CrossOriginFilter.class);
 
-    @Value("${http.resource.url}")
-    private String url;
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         LOGGER.info("启动跨域访问过滤器");
@@ -36,7 +33,8 @@ public class CrossOriginFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse resp = (HttpServletResponse) response;
-        resp.addHeader("Access-Control-Allow-Origin", url);
+        HttpServletRequest req = (HttpServletRequest) request;
+        resp.addHeader("Access-Control-Allow-Origin", req.getHeader("Origin"));
         resp.addHeader("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
         resp.addHeader("Access-Control-Allow-Headers", "Token,Content-Type,Authorization,Content-Disposition,Accept,ServerTime,x_requested_with");
         resp.addHeader("Access-Control-Expose-Headers", "Token,Content-Type,Authorization,Content-Disposition,Accept,ServerTime");
@@ -45,7 +43,7 @@ public class CrossOriginFilter implements Filter {
         // 添加服务器当前时间的响应头设置
         resp.addHeader("ServerTime", Integer.toString(DateTimeUtil.nowSecond2()));
 
-        HttpServletRequest req = (HttpServletRequest) request;
+
         if ("OPTIONS".equalsIgnoreCase(req.getMethod())) {
             resp.setStatus(200);
             return;
