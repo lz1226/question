@@ -1,5 +1,8 @@
 package com.paper.question.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.paper.question.common.PageResult;
 import com.paper.question.dao.mapper.SysRoleMapper;
 import com.paper.question.domain.dto.SysRoleDto;
 import com.paper.question.domain.entity.SysRole;
@@ -16,8 +19,12 @@ public class SysRoleImpl implements ISysRoleService{
     private SysRoleMapper sysRoleMapper;
 
     @Override
-    public List<SysRoleDto> list() {
-        return sysRoleMapper.list();
+    public PageResult list(SysRole sysRole) {
+
+        Integer pageNum = PageResult.PageInfo.getPageNum(sysRole.getPageNum());
+        Integer pageSize = PageResult.PageInfo.getPageSize(sysRole.getPageSize());
+        Page<SysRoleDto> page = PageHelper.startPage(pageNum, pageSize).doSelectPage(() -> sysRoleMapper.list(sysRole));
+        return new PageResult().get(page);
     }
 
     @Override
@@ -38,5 +45,11 @@ public class SysRoleImpl implements ISysRoleService{
     @Override
     public int delete(long id) {
         return sysRoleMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public int batchDelete(Long[] ids) {
+
+        return sysRoleMapper.batchDelete(ids);
     }
 }

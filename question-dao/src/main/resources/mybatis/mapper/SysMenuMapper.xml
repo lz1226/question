@@ -41,6 +41,10 @@
     from sys_menu
     where id = #{id,jdbcType=BIGINT}
   </select>
+  <select id="queryListParentId" resultMap="SysMenuDtoBaseResultMap">
+    select  * from sys_menu
+    where parent_id = #{parentId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sys_menu
     where id = #{id,jdbcType=BIGINT}

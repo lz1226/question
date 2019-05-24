@@ -1,7 +1,10 @@
 package com.paper.question.domain.dto;
 
+import org.omg.CORBA.PRIVATE_MEMBER;
+
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class SysMenuDto implements Serializable {
     private Long id;
@@ -29,6 +32,8 @@ public class SysMenuDto implements Serializable {
     private Date updateTime;
 
     private Boolean delFlag;
+
+    private List<SysMenuDto> children;
 
     public Long getId() {
         return id;
@@ -135,9 +140,17 @@ public class SysMenuDto implements Serializable {
     }
 
 
+    public List<SysMenuDto> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<SysMenuDto> children) {
+        this.children = children;
+    }
+
     @Override
     public String toString() {
-        return "SysMenu{" +
+        return "SysMenuDto{" +
                 "id=" + id +
                 ", parentId=" + parentId +
                 ", name='" + name + '\'' +
@@ -151,6 +164,7 @@ public class SysMenuDto implements Serializable {
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
                 ", delFlag=" + delFlag +
+                ", children=" + children +
                 '}';
     }
 }

@@ -1,5 +1,7 @@
 package com.paper.question.domain.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.paper.question.domain.common.Pagination;
 import io.swagger.annotations.ApiParam;
 
@@ -7,7 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class SysUser extends Pagination implements Serializable {
-	
+    @JsonSerialize(using = ToStringSerializer.class)
 	@ApiParam(hidden = true)
     private Long id;
 	@ApiParam(hidden = true)

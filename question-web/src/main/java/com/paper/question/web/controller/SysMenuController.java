@@ -6,6 +6,7 @@ import com.paper.question.domain.dto.SysMenuDto;
 import com.paper.question.domain.entity.SysMenu;
 import com.paper.question.interfaces.ISysMenuService;
 import io.swagger.annotations.*;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -82,5 +83,10 @@ public class SysMenuController {
     public JsonResult delete( @ApiParam(required=true, name="id", value="菜单Id")@PathVariable("id") long id){
         sysMenuService.delete(id);
         return JsonResultFactory.ok();
+    }
+
+    @GetMapping("/tree/menu")
+    public JsonResult treeMenu(SysMenuDto sysMenu){
+        return JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenu));
     }
 }

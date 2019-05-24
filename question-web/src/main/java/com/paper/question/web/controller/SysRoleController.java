@@ -25,8 +25,8 @@ public class SysRoleController {
      */
     @ApiOperation(value="查找用户列表接口")
     @PostMapping("/list")
-    public JsonResult list(){
-        return JsonResultFactory.get(sysRoleService.list());
+    public JsonResult list(@RequestBody SysRole sysRole){
+        return sysRoleService.list(sysRole);
     }
     @ApiOperation(value="通过Id查找角色接口")
     @GetMapping("/find/{id}")
@@ -62,6 +62,8 @@ public class SysRoleController {
     @PostMapping("edit")
     public JsonResult update(@RequestBody SysRole sysRole){
         int id =  sysRoleService.edit(sysRole);
+        System.out.println("编辑");
+        System.out.println(sysRole);
         return JsonResultFactory.get(new HashMap<String,Object>(){{
             put("id",id);
         }});
@@ -71,6 +73,17 @@ public class SysRoleController {
     @GetMapping("/delete/{id}")
     public JsonResult delete(@ApiParam(required=true, name="id", value="角色Id")@PathVariable("id") long id){
         sysRoleService.delete(id);
+        return JsonResultFactory.ok();
+    }
+
+    /**
+     * 批量删除用户的信息
+     */
+    @PostMapping("batchDelete")
+    public JsonResult batchDelete(@RequestBody Long ids[]){
+        System.out.println("参数");
+        System.out.println(ids);
+        sysRoleService.batchDelete(ids);
         return JsonResultFactory.ok();
     }
 }
