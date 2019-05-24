@@ -47,6 +47,7 @@ public class SysUser extends Pagination implements Serializable {
 	@ApiParam(hidden = true)
     private Boolean delFlag;
 	private Integer headImageId;
+	//需要装角色权限
 
     public Long getId() {
         return id;

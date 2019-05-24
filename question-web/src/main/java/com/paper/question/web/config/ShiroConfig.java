@@ -11,7 +11,7 @@ import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreato
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.paper.question.shiro.model.CustomRealm;
+import com.paper.question.web.shiro.model.CustomRealm;
 
 /**
  * 
