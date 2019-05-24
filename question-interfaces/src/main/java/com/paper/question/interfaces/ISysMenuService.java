@@ -3,6 +3,9 @@ package com.paper.question.interfaces;
 import com.paper.question.domain.dto.SysMenuDto;
 import com.paper.question.domain.entity.SysMenu;
 
+import java.util.List;
+import java.util.Map;
+
 public interface ISysMenuService {
     /**
      * 通过id查找菜单的信息
@@ -31,4 +34,9 @@ public interface ISysMenuService {
      * @return
      */
     int delete(long id);
+
+    /**
+     * 获取树形菜单列表
+     */
+    List<SysMenuDto> treeMenuList(Long menuId, SysMenuDto sysMenu);
 }

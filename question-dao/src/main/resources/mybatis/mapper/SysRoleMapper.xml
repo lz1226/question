@@ -25,10 +25,26 @@
   </select>
   <select id="list" resultMap="SysRoleDtoBaseResultMap">
     select * from sys_role
+    <include refid="conditionSql"></include>
   </select>
+
+  <sql id="conditionSql">
+    <where>
+      <if test="condition.roleName != null and condition.roleName != ''">
+        and role_name like concat('%',#{condition.roleName},'%')
+      </if>
+    </where>
+  </sql>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sys_role
     where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="batchDelete"  parameterType = "java.util.ArrayList">
+    delete from sys_role  where id in
+    <foreach item="item" collection="array" open="(" separator="," close=")">
+      #{item}
+    </foreach>
   </delete>
   <insert id="insertSelective"
           useGeneratedKeys="true"

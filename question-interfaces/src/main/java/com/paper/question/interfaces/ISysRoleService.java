@@ -1,5 +1,6 @@
 package com.paper.question.interfaces;
 
+import com.paper.question.common.PageResult;
 import com.paper.question.domain.dto.SysRoleDto;
 import com.paper.question.domain.entity.SysRole;
 
@@ -11,7 +12,7 @@ public interface ISysRoleService {
      * 查询角色列表
      * @return
      */
-    List<SysRoleDto> list();
+    PageResult list(SysRole sysRole);
 
     /**
      * 通过id查找角色的信息
@@ -40,4 +41,6 @@ public interface ISysRoleService {
      * @return
      */
     int delete(long id);
+
+    int batchDelete(Long ids[]);
 }

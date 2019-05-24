@@ -1,9 +1,14 @@
 package com.paper.question.domain.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import com.paper.question.domain.common.Pagination;
+
 import java.io.Serializable;
 import java.util.Date;
 
-public class SysRole implements Serializable {
+public class SysRole extends Pagination implements Serializable {
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
     private String roleName;
