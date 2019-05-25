@@ -14,6 +14,9 @@ import com.paper.question.common.JsonResult;
 import com.paper.question.common.JsonResultFactory;
 import com.paper.question.dao.mapper.SysUserMapper;
 import com.paper.question.domain.dto.LoginDto;
+import com.paper.question.domain.entity.SysUser;
+import com.paper.question.service.SysUserImpl;
+import com.paper.question.shiro.domain.ResourceMap;
 
 /**
  * 
@@ -29,6 +32,9 @@ public class LoginController {
     public LoginController(SysUserMapper sysUserMapper) {
         this.sysUserMapper = sysUserMapper;
     }
+    
+    @Autowired
+    private SysUserImpl sysUserImpl;
 
     @RequestMapping(value = "/notLogin", method = RequestMethod.GET)
     public JsonResult notLogin() {
@@ -61,12 +67,15 @@ public class LoginController {
         // 执行认证登陆
         subject.login(token);
         //根据权限，指定返回数据
-        String role = sysUserMapper.getRole(loginDto.getName()).getName();
+        SysUser sysUser = sysUserMapper.getRole(loginDto.getName());
         loginDto.setSessionId(subject.getSession().getId().toString());
-        if ("user".equals(role)) {
+        //需要向这个里边装权限这样才能在前端设置
+        
+        
+        if ("user".equals(sysUser.getName())) {
             return JsonResultFactory.get(loginDto);
         }
-        if ("admin".equals(role)) {
+        if ("admin".equals(sysUser.getName())) {
             return JsonResultFactory.get(loginDto);
         }
         return JsonResultFactory.get("权限错误！");

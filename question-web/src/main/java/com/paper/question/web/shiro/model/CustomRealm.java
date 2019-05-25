@@ -1,4 +1,4 @@
-package com.paper.question.shiro.model;
+package com.paper.question.web.shiro.model;
 
 
 import org.apache.shiro.SecurityUtils;
