@@ -10,7 +10,9 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/sysRole")
@@ -102,6 +104,12 @@ public class SysRoleController {
     public Object roleMenuList(@PathVariable("roleId") Long roleId)  {
         System.out.println("获取角色的菜单权限");
         System.out.println(roleId);
-        return  JsonResultFactory.get(sysRoleService.getCheckMenuIds(roleId));
+        List<String> strings = new ArrayList<>();
+        List<Long> item = sysRoleService.getCheckMenuIds(roleId);
+        item.forEach(i->{
+            String it = i.toString();
+            strings.add(it);
+        });
+        return  JsonResultFactory.get(strings);
     }
 }
