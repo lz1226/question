@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.paper.question.domain.common.Pagination;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
 public class SysRole extends Pagination implements Serializable {
@@ -18,6 +19,8 @@ public class SysRole extends Pagination implements Serializable {
     private Date createTime;
 
     private Date updateTime;
+
+    private Long[] menuIds;
 
     public Long getId() {
         return id;
@@ -59,6 +62,15 @@ public class SysRole extends Pagination implements Serializable {
         this.updateTime = updateTime;
     }
 
+
+    public Long[] getMenuIds() {
+        return menuIds;
+    }
+
+    public void setMenuIds(Long[] menuIds) {
+        this.menuIds = menuIds;
+    }
+
     @Override
     public String toString() {
         return "SysRole{" +
@@ -67,6 +79,7 @@ public class SysRole extends Pagination implements Serializable {
                 ", remark='" + remark + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", menuIds=" + Arrays.toString(menuIds) +
                 '}';
     }
 }

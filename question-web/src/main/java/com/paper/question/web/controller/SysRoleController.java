@@ -6,10 +6,13 @@ import com.paper.question.domain.dto.SysRoleDto;
 import com.paper.question.domain.entity.SysRole;
 import com.paper.question.interfaces.ISysRoleService;
 import io.swagger.annotations.*;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/sysRole")
@@ -85,5 +88,28 @@ public class SysRoleController {
         System.out.println(ids);
         sysRoleService.batchDelete(ids);
         return JsonResultFactory.ok();
+    }
+
+//    @RequiresPermissions("sys:role:saveMenuPerm")
+    @PostMapping(value = "/save/menuRole")
+    public JsonResult saveMuenPerms(@RequestBody SysRole role){
+        System.out.println("角色权限信息");
+        System.out.println(role);
+        sysRoleService.saveMuenPerms(role);
+        return JsonResultFactory.ok();
+    }
+
+    @ApiOperation(value = "获取角色的菜单权限")
+    @GetMapping(value = "/menu/list/{roleId}")
+    public Object roleMenuList(@PathVariable("roleId") Long roleId)  {
+        System.out.println("获取角色的菜单权限");
+        System.out.println(roleId);
+        List<String> strings = new ArrayList<>();
+        List<Long> item = sysRoleService.getCheckMenuIds(roleId);
+        item.forEach(i->{
+            String it = i.toString();
+            strings.add(it);
+        });
+        return  JsonResultFactory.get(strings);
     }
 }

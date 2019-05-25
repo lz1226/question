@@ -1,6 +1,9 @@
 package com.paper.question.dao.mapper;
 
 import com.paper.question.domain.entity.SysRoleMenu;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SysRoleMenuMapper {
 
@@ -16,4 +19,8 @@ public interface SysRoleMenuMapper {
     int updateByPrimaryKeySelective(SysRoleMenu sysRoleMenu);
 
     int updateByPrimaryKey(SysRoleMenu sysRoleMenu);
+
+    int deleteByRoleId(@Param("roleId") Long roleId);
+
+    List<Long> getCheckMenuIds(@Param("roleId") Long roleId);
 }

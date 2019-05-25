@@ -19,6 +19,14 @@
     delete from sys_role_menu
     where id = #{id,jdbcType=BIGINT}
   </delete>
+  <delete id="deleteByRoleId" parameterType="java.lang.Long">
+    delete from sys_role_menu
+    where role_id = #{roleId,jdbcType=BIGINT}
+  </delete>
+
+  <select id="getCheckMenuIds" parameterType="java.lang.Long" resultType="java.lang.Long">
+    select menu_id  from sys_role_menu where role_id = #{roleId,jdbcType=BIGINT}
+  </select>
   <insert id="insertSelective" useGeneratedKeys="true"
           keyProperty="id" parameterType="com.paper.question.domain.entity.SysRoleMenu">
     insert into sys_role_menu
