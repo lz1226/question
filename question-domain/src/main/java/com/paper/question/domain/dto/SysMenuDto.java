@@ -2,13 +2,14 @@ package com.paper.question.domain.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+import com.paper.question.domain.common.Pagination;
 import org.omg.CORBA.PRIVATE_MEMBER;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class SysMenuDto implements Serializable {
+public class SysMenuDto extends Pagination implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
