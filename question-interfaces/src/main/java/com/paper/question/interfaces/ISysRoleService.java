@@ -42,5 +42,24 @@ public interface ISysRoleService {
      */
     int delete(long id);
 
+    /**
+     * 批量删除
+     * @param ids
+     * @return
+     */
     int batchDelete(Long ids[]);
+
+    /**
+     * 保存角色的权限信息
+     * @param role
+     * @return
+     */
+    int saveMuenPerms(SysRole role);
+
+    /**
+     * 检查角色的信息
+     * @param roleId
+     * @return
+     */
+    List<Long> getCheckMenuIds(Long roleId);
 }

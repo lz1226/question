@@ -4,8 +4,10 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.paper.question.common.PageResult;
 import com.paper.question.dao.mapper.SysRoleMapper;
+import com.paper.question.dao.mapper.SysRoleMenuMapper;
 import com.paper.question.domain.dto.SysRoleDto;
 import com.paper.question.domain.entity.SysRole;
+import com.paper.question.domain.entity.SysRoleMenu;
 import com.paper.question.interfaces.ISysRoleService;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,9 @@ public class SysRoleImpl implements ISysRoleService{
 
     @Resource
     private SysRoleMapper sysRoleMapper;
+
+    @Resource
+    private SysRoleMenuMapper sysRoleMenuMapper;
 
     @Override
     public PageResult list(SysRole sysRole) {
@@ -51,5 +56,23 @@ public class SysRoleImpl implements ISysRoleService{
     public int batchDelete(Long[] ids) {
 
         return sysRoleMapper.batchDelete(ids);
+    }
+
+    @Override
+    public int saveMuenPerms(SysRole role) {
+        //先删除这个角色的权限再添加这个角色的权限
+        sysRoleMenuMapper.deleteByRoleId(role.getId());
+        for (Long item: role.getMenuIds()) {
+            SysRoleMenu sysRoleMenu = new SysRoleMenu();
+            sysRoleMenu.setRoleId(role.getId());
+            sysRoleMenu.setMenuId(item);
+            sysRoleMenuMapper.insertSelective(sysRoleMenu);
+        }
+        return 0;
+    }
+
+    @Override
+    public List<Long> getCheckMenuIds(Long roleId) {
+        return sysRoleMenuMapper.getCheckMenuIds(roleId);
     }
 }
