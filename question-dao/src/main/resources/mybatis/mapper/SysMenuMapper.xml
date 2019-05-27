@@ -44,15 +44,15 @@
   <select id="queryListParentId" resultMap="SysMenuDtoBaseResultMap">
     select  * from sys_menu
     where parent_id = #{parentId}
-    <include refid="conditionSql"></include>
+    <!--<include refid="conditionSql"></include>-->
   </select>
-  <sql id="conditionSql">
-    <where>
-      <if test="condition.name != null and condition.name != ''">
-        and name like concat('%',#{condition.name},'%')
-      </if>
-    </where>
-  </sql>
+  <!--<sql id="conditionSql">-->
+    <!--<where>-->
+      <!--<if test="condition.name != null and condition.name != ''">-->
+        <!--and name like concat('%',#{condition.name},'%')-->
+      <!--</if>-->
+    <!--</where>-->
+  <!--</sql>-->
 
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
