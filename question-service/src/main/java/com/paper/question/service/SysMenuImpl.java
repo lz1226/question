@@ -40,12 +40,25 @@ public class SysMenuImpl implements ISysMenuService{
 
     @Override
     public List<SysMenuDto> treeMenuList(Long menuId, SysMenuDto sysMenu) {
-        List<SysMenuDto>   menuList =  queryListParentId(menuId);
+        List<SysMenuDto>   menuList =  queryListParentId(menuId,sysMenu);
         return menuList;
     }
 
 
-    public List<SysMenuDto> queryListParentId(Long parentId) {
+//    public void getParent(ActivityAndOrderDto activityAndOrderDto,Integer activityId){
+//        activityAndOrderDto.setCustom(getChild(activityId,0));
+//    }
+//    //根据 pid 查到第一个  根据第一个的id查找他下边的内容
+//    public List<CustomDto>  getChild(Integer activityId,Integer pid){
+//        List<CustomDto> childCustoms = customMapper.listAvailable(activityId,pid);
+//        for (CustomDto item : childCustoms) {
+//            //根据父级的id 查询字集下边的内容  一级一级的往下找
+//            item.setChildren(getChild(activityId,item.getId()));
+//        }
+//        return childCustoms;
+//    }
+
+    public List<SysMenuDto> queryListParentId(Long parentId,SysMenuDto sysMenu) {
         return getAllMenuTreeList(parentId);
     }
     /**

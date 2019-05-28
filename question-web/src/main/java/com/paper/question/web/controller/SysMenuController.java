@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/sysMenu")
+    @RequestMapping("/sysMenu")
 @Api(value = "菜单")
 public class SysMenuController {
 
@@ -100,6 +100,10 @@ public class SysMenuController {
 
     @GetMapping("/tree/menu")
     public JsonResult treeMenu(SysMenuDto sysMenu){
+//        SysMenuDto sysMenu = new SysMenuDto();
+        System.out.println(sysMenu);
+        System.out.println("参数信息");
+        System.out.println(JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenu)));
         return JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenu));
     }
 }
