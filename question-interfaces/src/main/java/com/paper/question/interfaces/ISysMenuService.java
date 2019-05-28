@@ -1,7 +1,9 @@
 package com.paper.question.interfaces;
 
+import com.paper.question.common.PageResult;
 import com.paper.question.domain.dto.SysMenuDto;
 import com.paper.question.domain.entity.SysMenu;
+import com.paper.question.domain.entity.SysRole;
 
 import java.util.List;
 import java.util.Map;
@@ -39,4 +41,10 @@ public interface ISysMenuService {
      * 获取树形菜单列表
      */
     List<SysMenuDto> treeMenuList(Long menuId, SysMenuDto sysMenu);
+    
+    /**
+     * 查询权限列表
+     * @return
+     */
+    PageResult list(SysRole sysRole);
 }

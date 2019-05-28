@@ -3,7 +3,9 @@ package com.paper.question.web.controller;
 import com.paper.question.common.JsonResult;
 import com.paper.question.common.JsonResultFactory;
 import com.paper.question.domain.dto.SysMenuDto;
+import com.paper.question.domain.dto.SysRoleDto;
 import com.paper.question.domain.entity.SysMenu;
+import com.paper.question.domain.entity.SysRole;
 import com.paper.question.interfaces.ISysMenuService;
 import io.swagger.annotations.*;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -20,6 +22,17 @@ public class SysMenuController {
     @Resource
     private ISysMenuService sysMenuService;
 
+    
+    /**
+     * 查找菜单的分页雷暴
+     * @return
+     */
+    @ApiOperation(value="查找菜单列表接口")
+    @PostMapping("/list")
+    public JsonResult list(@RequestBody SysRole sysRole){
+        return sysMenuService.list(sysRole);
+    }
+    
     @ApiOperation(value="通过Id查找菜单接口")
     @GetMapping("/find/{id}")
     public JsonResult findUserById(@ApiParam(required=true, name="id", value="菜单Id")@PathVariable("id") long id){
