@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class SysMenuDto extends Pagination implements Serializable {
+public class SysMenuDto implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
 
