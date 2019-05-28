@@ -43,7 +43,7 @@ public class SysMenuController {
             @ApiImplicitParam(paramType = "query",name="updateTime",value="更新时间",required = false,dataType="Date"),
             @ApiImplicitParam(paramType = "query",name="delFlag",value="是否删除",required = false,dataType="Boolean"),
     })
-    @PostMapping("create")
+    @PostMapping("/create")
     public JsonResult create(@RequestBody SysMenu sysMenu){
         int id = sysMenuService.create(sysMenu);
         return JsonResultFactory.get(new HashMap<String,Object>(){{
@@ -67,7 +67,7 @@ public class SysMenuController {
             @ApiImplicitParam(paramType = "query",name="updateTime",value="更新时间",required = false,dataType="Date"),
             @ApiImplicitParam(paramType = "query",name="delFlag",value="是否删除",required = false,dataType="Boolean"),
     })
-    @PostMapping("edit")
+    @PostMapping("/edit")
     public JsonResult update(@RequestBody SysMenu sysMenu){
         int id =  sysMenuService.edit(sysMenu);
         return JsonResultFactory.get(new HashMap<String,Object>(){{
