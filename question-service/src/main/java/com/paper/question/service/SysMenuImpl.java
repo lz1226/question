@@ -44,6 +44,12 @@ public class SysMenuImpl implements ISysMenuService{
         return menuList;
     }
 
+    @Override
+    public int batchDelete(Long[] ids) {
+
+        return sysMenuMapper.batchDelete(ids);
+    }
+
 
 //    public void getParent(ActivityAndOrderDto activityAndOrderDto,Integer activityId){
 //        activityAndOrderDto.setCustom(getChild(activityId,0));

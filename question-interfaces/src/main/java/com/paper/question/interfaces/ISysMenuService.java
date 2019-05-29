@@ -39,4 +39,11 @@ public interface ISysMenuService {
      * 获取树形菜单列表
      */
     List<SysMenuDto> treeMenuList(Long menuId, SysMenuDto sysMenu);
+
+    /**
+     * 批量删除
+     * @param ids
+     * @return
+     */
+    int batchDelete(Long ids[]);
 }

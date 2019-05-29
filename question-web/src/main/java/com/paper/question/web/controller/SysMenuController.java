@@ -87,10 +87,20 @@ public class SysMenuController {
 
     @GetMapping("/tree/menu")
     public JsonResult treeMenu(SysMenuDto sysMenu){
-//        SysMenuDto sysMenu = new SysMenuDto();
-        System.out.println(sysMenu);
         System.out.println("参数信息");
+        System.out.println(sysMenu);
         System.out.println(JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenu)));
         return JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenu));
+    }
+
+    /**
+     * 批量删除用户的信息
+     */
+    @PostMapping("/batchDelete")
+    public JsonResult batchDelete(@RequestBody Long ids[]){
+        System.out.println("参数");
+        System.out.println(ids);
+        sysMenuService.batchDelete(ids);
+        return JsonResultFactory.ok();
     }
 }
