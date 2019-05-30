@@ -393,3 +393,126 @@ INSERT INTO `sys_user_role` VALUES (20, 1, 1);
 INSERT INTO `sys_user_role` VALUES (21, 1072429679148908500, 1076685137679704065);
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+
+DROP TABLE IF EXISTS `admin`;
+
+CREATE TABLE `admin` (
+  `loginId` int(11) NOT NULL AUTO_INCREMENT,
+  `loginPwd` varchar(255) NOT NULL,
+  PRIMARY KEY (`loginId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `class` */
+
+DROP TABLE IF EXISTS `class`;
+
+CREATE TABLE `class` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `headmaster` varchar(255) NOT NULL,
+  `teacher` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `log` */
+
+DROP TABLE IF EXISTS `log`;
+
+CREATE TABLE `log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `stuName` varchar(255) NOT NULL,
+  `classname` varchar(255) NOT NULL,
+  `examDate` datetime DEFAULT NULL,
+  `paper_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `paper_id` (`paper_id`),
+  CONSTRAINT `log_ibfk_1` FOREIGN KEY (`paper_id`) REFERENCES `paper` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `loganswer` */
+
+DROP TABLE IF EXISTS `loganswer`;
+
+CREATE TABLE `loganswer` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `log_id` int(11) DEFAULT NULL,
+  `question_id` int(11) DEFAULT NULL,
+  `answer` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `log_id` (`log_id`),
+  KEY `question_id` (`question_id`),
+  CONSTRAINT `loganswer_ibfk_1` FOREIGN KEY (`log_id`) REFERENCES `log` (`id`),
+  CONSTRAINT `loganswer_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `options` */
+
+DROP TABLE IF EXISTS `options`;
+
+CREATE TABLE `options` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `optName` varchar(255) NOT NULL,
+  `question_id` int(11) DEFAULT NULL,
+  `disorder` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `question_id` (`question_id`),
+  CONSTRAINT `options_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `paper` */
+
+DROP TABLE IF EXISTS `paper`;
+
+CREATE TABLE `paper` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `createDate` datetime DEFAULT NULL,
+  `time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `paperquestion` */
+
+DROP TABLE IF EXISTS `paperquestion`;
+
+CREATE TABLE `paperquestion` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `paper_id` int(11) DEFAULT NULL,
+  `question_id` int(11) DEFAULT NULL,
+  `disorder` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `paper_id` (`paper_id`),
+  KEY `question_id` (`question_id`),
+  CONSTRAINT `paperquestion_ibfk_1` FOREIGN KEY (`paper_id`) REFERENCES `paper` (`id`),
+  CONSTRAINT `paperquestion_ibfk_2` FOREIGN KEY (`question_id`) REFERENCES `question` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `question` */
+
+DROP TABLE IF EXISTS `question`;
+
+CREATE TABLE `question` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `quesName` varchar(255) NOT NULL,
+  `type_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `type_id` (`type_id`),
+  CONSTRAINT `question_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `questiontype` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Table structure for table `questiontype` */
+
+DROP TABLE IF EXISTS `questiontype`;
+
+CREATE TABLE `questiontype` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
