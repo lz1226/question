@@ -1,9 +1,11 @@
 package com.paper.question.service;
 
+import com.paper.question.common.PageResult;
 import com.paper.question.common.util.Constant;
 import com.paper.question.dao.mapper.SysMenuMapper;
 import com.paper.question.domain.dto.SysMenuDto;
 import com.paper.question.domain.entity.SysMenu;
+import com.paper.question.domain.entity.SysRole;
 import com.paper.question.interfaces.ISysMenuService;
 import org.springframework.stereotype.Service;
 
@@ -74,4 +76,10 @@ public class SysMenuImpl implements ISysMenuService{
         }
         return menuList;
     }
+
+	@Override
+	public PageResult list(SysRole sysRole) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
