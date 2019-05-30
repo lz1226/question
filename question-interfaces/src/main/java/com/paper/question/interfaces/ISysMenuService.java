@@ -47,4 +47,16 @@ public interface ISysMenuService {
      * @return
      */
     PageResult list(SysRole sysRole);
+
+    /**
+     * 批量删除
+     * @param ids
+     * @return
+     */
+    int batchDelete(Long ids[]);
+
+    /**
+     * 获取该角色的菜单列表
+     */
+    List<SysMenuDto> getUserMenuList(Long userId);
 }

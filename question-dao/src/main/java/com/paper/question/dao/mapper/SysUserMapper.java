@@ -39,4 +39,9 @@ public interface SysUserMapper {
     List<SysUserDto> list(@Param("condition")SysUser pagination);
 
     int batchDelete(Long[] userIds);
+
+    /**
+     * 查询用户的所有菜单ID
+     */
+    List<Long> queryAllMenuId(Long userId);
 }

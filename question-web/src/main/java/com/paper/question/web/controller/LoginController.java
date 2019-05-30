@@ -69,6 +69,7 @@ public class LoginController {
         //根据权限，指定返回数据
         SysUser sysUser = sysUserMapper.getRole(loginDto.getName());
         loginDto.setSessionId(subject.getSession().getId().toString());
+        loginDto.setSysUser(sysUser);
         //需要向这个里边装权限这样才能在前端设置
         
         

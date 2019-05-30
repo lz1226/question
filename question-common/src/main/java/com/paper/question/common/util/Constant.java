@@ -1,6 +1,8 @@
 package com.paper.question.common.util;
 
 public class Constant {
+    /** 超级管理员ID */
+    public static final int SUPER_ADMIN = 1;
 
     /**
      * 菜单类型

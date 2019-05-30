@@ -39,6 +39,8 @@ public class SysMenuDto implements Serializable {
 
     private List<SysMenuDto> children;
 
+    private List<SysMenuDto> list;
+
     public Long getId() {
         return id;
     }
@@ -150,6 +152,14 @@ public class SysMenuDto implements Serializable {
 
     public void setChildren(List<SysMenuDto> children) {
         this.children = children;
+    }
+
+    public List<SysMenuDto> getList() {
+        return list;
+    }
+
+    public void setList(List<SysMenuDto> list) {
+        this.list = list;
     }
 
     @Override

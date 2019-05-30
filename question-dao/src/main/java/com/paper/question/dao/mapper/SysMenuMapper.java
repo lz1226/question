@@ -30,5 +30,7 @@ public interface SysMenuMapper {
      * 根据父菜单，查询子菜单
      * @param parentId 父菜单ID
      */
-    List<SysMenuDto> queryListParentId(@Param("parentId") Long parentId);
+    List<SysMenuDto> queryListParentId(@Param("parentId") Long parentId,@Param("condition") SysMenuDto sysMenu);
+
+    int batchDelete(Long[] roleIds);
 }

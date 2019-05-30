@@ -4,6 +4,7 @@ import com.paper.question.common.JsonResult;
 import com.paper.question.common.JsonResultFactory;
 import com.paper.question.domain.dto.SysMenuDto;
 import com.paper.question.domain.dto.SysRoleDto;
+import com.paper.question.domain.dto.SysUserDto;
 import com.paper.question.domain.entity.SysMenu;
 import com.paper.question.domain.entity.SysRole;
 import com.paper.question.interfaces.ISysMenuService;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
     @RequestMapping("/sysMenu")
@@ -56,7 +59,7 @@ public class SysMenuController {
             @ApiImplicitParam(paramType = "query",name="updateTime",value="更新时间",required = false,dataType="Date"),
             @ApiImplicitParam(paramType = "query",name="delFlag",value="是否删除",required = false,dataType="Boolean"),
     })
-    @PostMapping("create")
+    @PostMapping("/create")
     public JsonResult create(@RequestBody SysMenu sysMenu){
         int id = sysMenuService.create(sysMenu);
         return JsonResultFactory.get(new HashMap<String,Object>(){{
@@ -80,7 +83,7 @@ public class SysMenuController {
             @ApiImplicitParam(paramType = "query",name="updateTime",value="更新时间",required = false,dataType="Date"),
             @ApiImplicitParam(paramType = "query",name="delFlag",value="是否删除",required = false,dataType="Boolean"),
     })
-    @PostMapping("edit")
+    @PostMapping("/edit")
     public JsonResult update(@RequestBody SysMenu sysMenu){
         int id =  sysMenuService.edit(sysMenu);
         return JsonResultFactory.get(new HashMap<String,Object>(){{
@@ -99,11 +102,30 @@ public class SysMenuController {
     }
 
     @GetMapping("/tree/menu")
-    public JsonResult treeMenu(SysMenuDto sysMenu){
-//        SysMenuDto sysMenu = new SysMenuDto();
-        System.out.println(sysMenu);
+    public JsonResult treeMenu(SysMenuDto sysMenuDto){
         System.out.println("参数信息");
-        System.out.println(JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenu)));
-        return JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenu));
+        System.out.println(sysMenuDto);
+        System.out.println(JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenuDto)));
+        return JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenuDto));
+    }
+
+    /**
+     * 批量删除用户的信息
+     */
+    @PostMapping("/batchDelete")
+    public JsonResult batchDelete(@RequestBody Long ids[]){
+        System.out.println("参数");
+        System.out.println(ids);
+        sysMenuService.batchDelete(ids);
+        return JsonResultFactory.ok();
+    }
+
+    /**
+     * 导航菜单
+     */
+    @GetMapping("/nav")
+    public JsonResult nav(){
+        List<SysMenuDto>  menuList = sysMenuService.getUserMenuList(1L);
+        return JsonResultFactory.get(menuList);
     }
 }
