@@ -4,6 +4,7 @@ import com.paper.question.domain.entity.SysUser;
 
 public class LoginDto {
     String name;
+
     String password;
 
     SysUser sysUser;
