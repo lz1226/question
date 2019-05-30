@@ -59,7 +59,12 @@
     left join image_resource i on i.id = s.head_image_id
     <include refid="conditionSql"></include>
   </select>
-
+  <!-- 查询用户的所有菜单ID -->
+  <select id="queryAllMenuId" resultType="long">
+    select distinct rm.menu_id from sys_user_role ur
+    LEFT JOIN sys_role_menu rm on ur.role_id = rm.role_id
+    where ur.user_id = #{userId}
+  </select>
   <sql id="conditionSql">
       <where>
         <if test="condition.account != null and condition.account != ''">

@@ -3,6 +3,7 @@ package com.paper.question.web.controller;
 import com.paper.question.common.JsonResult;
 import com.paper.question.common.JsonResultFactory;
 import com.paper.question.domain.dto.SysMenuDto;
+import com.paper.question.domain.dto.SysUserDto;
 import com.paper.question.domain.entity.SysMenu;
 import com.paper.question.interfaces.ISysMenuService;
 import io.swagger.annotations.*;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
     @RequestMapping("/sysMenu")
@@ -102,5 +105,14 @@ public class SysMenuController {
         System.out.println(ids);
         sysMenuService.batchDelete(ids);
         return JsonResultFactory.ok();
+    }
+
+    /**
+     * 导航菜单
+     */
+    @GetMapping("/nav")
+    public JsonResult nav(){
+        List<SysMenuDto>  menuList = sysMenuService.getUserMenuList(1L);
+        return JsonResultFactory.get(menuList);
     }
 }
