@@ -86,11 +86,11 @@ public class SysMenuController {
     }
 
     @GetMapping("/tree/menu")
-    public JsonResult treeMenu(SysMenuDto sysMenu){
+    public JsonResult treeMenu(SysMenuDto sysMenuDto){
         System.out.println("参数信息");
-        System.out.println(sysMenu);
-        System.out.println(JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenu)));
-        return JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenu));
+        System.out.println(sysMenuDto);
+        System.out.println(JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenuDto)));
+        return JsonResultFactory.get(sysMenuService.treeMenuList(0L,sysMenuDto));
     }
 
     /**

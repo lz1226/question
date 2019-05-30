@@ -65,19 +65,21 @@ public class SysMenuImpl implements ISysMenuService{
 //    }
 
     public List<SysMenuDto> queryListParentId(Long parentId,SysMenuDto sysMenu) {
-        return getAllMenuTreeList(parentId);
+        return getAllMenuTreeList(parentId,sysMenu);
     }
     /**
      * 获取所有菜单 递归
      */
-    private List<SysMenuDto> getAllMenuTreeList(Long parentId){
-        List<SysMenuDto> menuList = sysMenuMapper.queryListParentId(parentId);
-        for(SysMenuDto item : menuList){
-            //目录
-            if(item.getType() == Constant.MenuType.CATALOG.getValue() || item.getType() == Constant.MenuType.MENU.getValue()){
-                    item.setChildren(getAllMenuTreeList(item.getId()));
-            }
-        }
+    private List<SysMenuDto> getAllMenuTreeList(Long parentId,SysMenuDto sysMenu){
+        List<SysMenuDto> menuList = sysMenuMapper.queryListParentId(parentId,sysMenu);
+         if(menuList.size() > 0){
+             for(SysMenuDto item : menuList){
+                 //目录
+                 if(item.getType() == Constant.MenuType.CATALOG.getValue() || item.getType() == Constant.MenuType.MENU.getValue()){
+                     item.setChildren(getAllMenuTreeList(item.getId(),sysMenu));
+                 }
+             }
+         }
         return menuList;
     }
 }
